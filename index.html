@@ -1,0 +1,2078 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+</head>
+<body>
+<title>Yannz Portfolio</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<script>
+/* =========================================================================
+   EDIT DI SINI  —  semua isi pribadi portfolio ada di blok ini saja.
+   -------------------------------------------------------------------------
+   photo    : link foto profil, contoh 'https://i.imgur.com/abcd.jpg'
+              atau file sendiri di folder yang sama, contoh 'foto.jpg'.
+              Kosong = huruf inisial.
+   name     : nama yang tampil di seluruh halaman.
+   origin   : asal.
+   socials  : link lengkap, username, atau nomor WA. Yang kosong disembunyikan.
+   gallery  : foto-foto tambahan (link atau nama file). Tampil di bab
+              Perkenalan. Kosong = bagian galeri tidak muncul.
+   links    : link apa saja yang mau dipajang, { label: '...', url: '...' }.
+   files    : file untuk diunduh (CV, PDF, zip...), { label: '...', url: 'cv.pdf' }.
+              Taruh filenya di folder yang sama dengan index.html.
+   Links & files tampil di bagian penutup. Kosong = tidak muncul.
+   ========================================================================= */
+window.PROFILE = {
+  photo: '',
+  name: 'Yann',
+  origin: 'Indonesia',
+  socials: { instagram: '', tiktok: '', whatsapp: '', telegram: '', x: '' },
+  gallery: [
+    // 'foto1.jpg',
+    // 'https://link-foto-kamu.jpg',
+  ],
+  links: [
+    // { label: 'Proyek aku', url: 'https://...' },
+  ],
+  files: [
+    // { label: 'Unduh CV', url: 'cv.pdf' },
+  ]
+};
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,300..800&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&family=Onest:wght@400;500;600&display=swap">
+<style>
+/* Layout: a save file read top to bottom. One reading column on the left, a quiet 3D room of Yann's things on the right that rearranges for every chapter. Loud only once: MONEY. */
+:root {
+  color-scheme: dark;
+  --bg: #0f1417;
+  --bg-2: #161d21;
+  --fg: #ebe7dd;
+  --muted: #8f999e;
+  --line: #263137;
+  --accent-d: #f2b84b;
+  --accent-l: #9a5800;
+  --accent: var(--accent-d);
+  --on-accent: #1a1308;
+  --glitch-a: #ff3f6c;
+  --glitch-b: #2fe0d0;
+  --shadow: 0 30px 60px -30px rgba(0, 0, 0, .7);
+
+  --f-display: 'Bricolage Grotesque', 'Arial Narrow', system-ui, sans-serif;
+  --f-body: 'Onest', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --f-mono: 'JetBrains Mono', ui-monospace, Menlo, Consolas, monospace;
+  --f-serif: 'Instrument Serif', Georgia, 'Times New Roman', serif;
+
+  --t-label: .75rem;
+  --t-body: 1.0625rem;
+  --t-lead: clamp(1.2rem, 1.1rem + .6vw, 1.5rem);
+  --t-h3: clamp(1.4rem, 1.2rem + .8vw, 1.9rem);
+  --t-h2: clamp(2.4rem, 1.4rem + 4.4vw, 5rem);
+  --t-say: clamp(1.9rem, 1.1rem + 3.4vw, 4rem);
+  --ease: cubic-bezier(.2, .75, .2, 1);
+}
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) {
+    color-scheme: light;
+    --bg: #e8eae6; --bg-2: #f5f5f1; --fg: #13181b; --muted: #5a656a; --line: #cbd1cf;
+    --accent: var(--accent-l); --on-accent: #ffffff; --glitch-a: #e0164a; --glitch-b: #00897f;
+    --shadow: 0 30px 60px -34px rgba(20, 30, 35, .35);
+  }
+}
+:root[data-theme="light"] {
+  color-scheme: light;
+  --bg: #e8eae6; --bg-2: #f5f5f1; --fg: #13181b; --muted: #5a656a; --line: #cbd1cf;
+  --accent: var(--accent-l); --on-accent: #ffffff; --glitch-a: #e0164a; --glitch-b: #00897f;
+  --shadow: 0 30px 60px -34px rgba(20, 30, 35, .35);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+:root.calm { scroll-behavior: auto; }
+body {
+  background: var(--bg); color: var(--fg);
+  font-family: var(--f-body); font-size: var(--t-body); line-height: 1.65;
+  -webkit-font-smoothing: antialiased; overflow-x: clip;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--bg); }
+::selection { background: var(--accent); color: var(--on-accent); }
+a { color: inherit; }
+button { font: inherit; color: inherit; cursor: pointer; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 6px; }
+h1, h2, h3 { text-wrap: balance; margin: 0; }
+p { margin: 0; }
+
+/* backdrop: a dotted wallpaper, static so it costs nothing while scrolling */
+.sky {
+  position: fixed; inset: 0; z-index: 0; pointer-events: none;
+  background-image: radial-gradient(color-mix(in oklab, var(--fg) 10%, transparent) 1px, transparent 1.3px);
+  background-size: 26px 26px;
+  -webkit-mask-image: radial-gradient(110% 75% at 72% 35%, #000 0%, transparent 72%);
+  mask-image: radial-gradient(110% 75% at 72% 35%, #000 0%, transparent 72%);
+}
+#stage { position: fixed; left: 0; top: 0; width: 100vw; height: 100lvh; z-index: 1; pointer-events: none; display: block; }
+:root.no3d #stage { display: none; }
+#pop { position: fixed; left: 0; top: 0; width: 100vw; height: 100lvh; z-index: 15; pointer-events: none; display: block; }
+:root.no3d #pop { display: none; }
+.like { cursor: pointer; }
+.like:active { transform: perspective(700px) translateZ(10px) scale(.98); }
+.tap-hint { font-family: var(--f-mono); font-size: var(--t-label); letter-spacing: .14em; text-transform: uppercase; color: var(--muted); margin-top: -12px; }
+main { position: relative; z-index: 2; transform-origin: 50% 0; }
+:root.fx main { will-change: transform; }
+.wrap { max-width: var(--wrap, 1240px); margin-inline: auto; padding-inline: clamp(0px, 2.5vw, 32px); }
+.ch { padding-block: clamp(96px, 16vh, 168px); }
+
+.eyebrow {
+  font-family: var(--f-mono); font-size: var(--t-label); letter-spacing: .16em; text-transform: uppercase;
+  color: var(--muted); display: flex; gap: .9em; align-items: center;
+}
+.eyebrow .n { color: var(--accent); }
+.eyebrow::after { content: ""; height: 1px; width: 48px; background: var(--line); }
+.h2 { font-family: var(--f-display); font-size: var(--t-h2); line-height: .98; font-weight: 700; font-stretch: 80%; letter-spacing: -.02em; }
+.lead { font-size: var(--t-lead); line-height: 1.5; color: var(--muted); max-width: 40ch; }
+.col { max-width: 660px; display: grid; gap: 28px; min-width: 0; }
+
+/* ---------- HUD ---------- */
+.hud {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 20;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  background: color-mix(in oklab, var(--bg) 86%, transparent);
+  border-bottom: 1px solid var(--line);
+}
+.hud-row { height: 56px; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 12px; max-width: 1240px; margin-inline: auto; padding-inline: clamp(0px, 2.5vw, 32px); }
+.mark { font-family: var(--f-display); font-weight: 800; font-stretch: 75%; font-size: 1.35rem; letter-spacing: .02em; text-decoration: none; justify-self: start; }
+.mark i { font-style: normal; color: var(--accent); }
+.hud-ch { font-family: var(--f-mono); font-size: var(--t-label); letter-spacing: .12em; text-transform: uppercase; color: var(--muted); white-space: nowrap; font-variant-numeric: tabular-nums; }
+.hud-ch b { color: var(--fg); font-weight: 500; }
+.hud-act { justify-self: end; display: flex; gap: 8px; }
+.icon-btn, .pill-btn {
+  height: 36px; border: 1px solid var(--line); background: var(--bg-2); border-radius: 999px;
+  display: inline-grid; place-items: center; transition: border-color .2s, transform .2s var(--ease);
+}
+.icon-btn { width: 36px; }
+.icon-btn svg { width: 17px; height: 17px; }
+.pill-btn { padding-inline: 14px; font-family: var(--f-mono); font-size: var(--t-label); letter-spacing: .1em; text-transform: uppercase; }
+.icon-btn:hover, .pill-btn:hover { border-color: var(--accent); transform: translateY(-1px); }
+.hud-bar { position: absolute; left: 0; right: 0; bottom: -1px; height: 2px; overflow: hidden; }
+.hud-bar i { display: block; height: 100%; background: var(--accent); transform-origin: 0 50%; transform: scaleX(0); will-change: transform; }
+@media (max-width: 640px) { .hud-ch .nm { display: none; } }
+
+/* ---------- 3D words ---------- */
+.w { display: inline-block; perspective: 520px; }
+.wi { display: inline-block; transform-origin: 50% 100%; }
+.pre .wi { transition: transform 1.1s var(--ease) calc(min(var(--i), 26) * 28ms), opacity .6s ease calc(min(var(--i), 26) * 28ms); }
+.pre:not(.in) .wi { opacity: 0; transform: translateY(.7em) translateZ(-90px) rotateX(-105deg) rotateY(calc(var(--i) * 4deg - 14deg)); }
+.reveal.pre { transition: transform 1s var(--ease) var(--dl, 0ms), opacity .7s ease var(--dl, 0ms); }
+.reveal.pre:not(.in) { opacity: 0; transform: perspective(900px) translateY(90px) translateZ(-180px) rotateX(34deg) rotateY(calc(var(--ry, 0deg) * 2.2)); }
+:root.calm .pre .wi, :root.calm .reveal.pre { opacity: 1 !important; transform: none !important; transition: none !important; }
+
+/* ---------- 01 profile ---------- */
+.hero { min-height: min(100svh, 940px); display: grid; align-content: center; padding-block: 120px 72px; }
+.hero-grid { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr); gap: clamp(32px, 5vw, 80px); align-items: center; }
+.hero-copy { display: grid; gap: 22px; min-width: 0; }
+.display {
+  font-family: var(--f-display); font-weight: 800; font-stretch: 75%;
+  font-size: clamp(5.5rem, 3rem + 13vw, 15rem); line-height: .8; letter-spacing: -.03em;
+  perspective: 900px;
+}
+.display .ltr { display: inline-block; transform-origin: 50% 90%; animation: ltrIn 1.1s var(--ease) both; animation-delay: calc(var(--i) * 70ms + 120ms); }
+@keyframes ltrIn { from { transform: translateY(.7em) translateZ(-260px) rotateX(-120deg) rotateY(calc(40deg - var(--i) * 20deg)); opacity: 0; } }
+:root.calm .display .ltr { animation: none; }
+.hero .lead { color: var(--fg); opacity: .82; }
+.origin-line { display: flex; flex-wrap: wrap; gap: 10px; }
+.chip { display: inline-flex; align-items: center; gap: 8px; height: 34px; padding-inline: 14px; border: 1px solid var(--line); border-radius: 999px; font-family: var(--f-mono); font-size: var(--t-label); letter-spacing: .08em; text-transform: uppercase; background: var(--bg-2); }
+.flag { width: 20px; height: 14px; border-radius: 2px; box-shadow: 0 0 0 1px var(--line); flex: none; }
+.dot { width: 7px; height: 7px; border-radius: 50%; background: var(--accent); }
+
+.float { animation: floaty 7s ease-in-out infinite; justify-self: center; width: min(390px, 100%); }
+@keyframes floaty { 50% { transform: translateY(-12px); } }
+:root.calm .float { animation: none; }
+.profile {
+  --rx: 0deg; --ry: 0deg;
+  background: var(--bg-2); border: 1px solid var(--line); border-radius: 24px; padding: 16px;
+  box-shadow: var(--shadow);
+  transform: perspective(1100px) rotateX(var(--rx)) rotateY(var(--ry));
+  transform-style: preserve-3d; transition: transform .6s var(--ease);
+  display: grid; gap: 16px;
+}
+.pc-top { display: flex; justify-content: space-between; font-family: var(--f-mono); font-size: var(--t-label); letter-spacing: .12em; text-transform: uppercase; color: var(--muted); transform: translateZ(18px); padding-inline: 4px; }
+.pc-photo {
+  aspect-ratio: 4 / 4.3; max-width: 100%; border-radius: 16px; position: relative; overflow: hidden;
+  background:
+    repeating-linear-gradient(135deg, transparent 0 14px, color-mix(in oklab, var(--fg) 5%, transparent) 14px 15px),
+    color-mix(in oklab, var(--accent) 16%, var(--bg));
+  transform: translateZ(34px); display: grid; place-items: center;
+}
+.pc-photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.pc-mono { font-family: var(--f-display); font-weight: 800; font-stretch: 75%; font-size: 9rem; line-height: 1; color: var(--accent); }
+.pc-rows { margin: 0; display: grid; gap: 2px; transform: translateZ(48px); }
+.pc-rows > div { display: grid; grid-template-columns: 76px 1fr; align-items: baseline; gap: 12px; padding: 10px 6px; border-top: 1px solid var(--line); }
+.pc-rows dt { font-family: var(--f-mono); font-size: var(--t-label); letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+.pc-rows dd { margin: 0; font-family: var(--f-display); font-weight: 600; font-size: 1.35rem; display: flex; align-items: center; gap: 10px; min-width: 0; overflow-wrap: anywhere; }
+.scroll-cue { margin-top: 56px; font-family: var(--f-mono); font-size: var(--t-label); letter-spacing: .16em; text-transform: uppercase; color: var(--muted); display: flex; gap: 10px; align-items: center; }
+.scroll-cue span { display: inline-block; animation: cue 2.2s ease-in-out infinite; }
+@keyframes cue { 50% { transform: translateY(5px); } }
+
+/* ---------- 02 intro ---------- */
+.say { font-family: var(--f-display); font-size: var(--t-say); line-height: 1.12; font-weight: 500; letter-spacing: -.015em; max-width: 21ch; }
+.say em { font-family: var(--f-serif); font-style: italic; font-weight: 400; color: var(--accent); letter-spacing: 0; }
+.say .soft { color: var(--muted); }
+.intro .col { max-width: 900px; gap: 36px; }
+
+.gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 12px; perspective: 900px; }
+.gallery figure { margin: 0; aspect-ratio: 4 / 5; max-width: 100%; border-radius: 16px; overflow: hidden; border: 1px solid var(--line); background: var(--bg-2); transform: rotate(var(--r)); transition: transform .5s var(--ease); }
+.gallery figure:hover { transform: translateZ(40px) rotate(0deg) scale(1.04); }
+.gallery img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+/* ---------- 03 likes ---------- */
+.likes { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 34px 130px; width: min(100%, 660px); margin-left: clamp(0px, 5vw, 70px); }   /* narrow, with room on both sides for the 3D to pass */
+.like {
+  height: 100%; display: grid; grid-template-columns: auto 1fr; gap: 4px 16px; align-items: center;
+  padding: 20px; border-radius: 18px; background: var(--bg-2); border: 1px solid var(--line);
+  transition: transform .5s var(--ease), border-color .3s;
+}
+.like:hover, .like:focus-within { transform: perspective(700px) translateZ(46px) rotateX(9deg) rotateY(-4deg); border-color: var(--accent); }
+.like svg { grid-row: span 2; width: 42px; height: 42px; padding: 9px; border-radius: 12px; background: var(--bg); border: 1px solid var(--line); color: var(--accent); stroke: currentColor; fill: none; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+.like b { font-family: var(--f-display); font-weight: 600; font-size: 1.3rem; line-height: 1.2; }
+.like span { color: var(--muted); font-size: .95rem; }
+.quiet {
+  margin: 12px 0 0; padding-left: 22px; border-left: 2px solid var(--accent);
+  font-family: var(--f-serif); font-size: clamp(1.7rem, 1.2rem + 2vw, 2.8rem); line-height: 1.15; max-width: 22ch;
+}
+.quiet em { color: var(--accent); }
+.quiet small { display: block; margin-top: 14px; font-family: var(--f-mono); font-size: var(--t-label); letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+
+/* ---------- 04 skills ---------- */
+.sides { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; perspective: 1200px; }
+.side {
+  border-radius: 20px; padding: 22px; display: grid; gap: 10px; align-content: start; min-height: 230px;
+  border: 1px solid var(--line); background: var(--bg-2);
+  transition: transform .6s var(--ease);
+}
+.side.a { background: var(--accent); color: var(--on-accent); border-color: transparent; transform: rotateY(9deg); transform-origin: 100% 50%; }
+.side.b { transform: rotateY(-9deg); transform-origin: 0 50%; }
+.sides:hover .side { transform: none; }
+.side .sign { font-family: var(--f-mono); font-size: 1.6rem; font-weight: 500; letter-spacing: -.02em; }
+.side .tag { font-family: var(--f-mono); font-size: var(--t-label); letter-spacing: .14em; text-transform: uppercase; opacity: .7; }
+.side h3 { font-family: var(--f-display); font-size: var(--t-h3); line-height: 1.1; font-weight: 700; margin-top: auto; }
+.side p { opacity: .8; }
+.hobby-h { font-family: var(--f-display); font-size: var(--t-h3); font-weight: 700; display: flex; align-items: baseline; gap: 12px; }
+.hobbies { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 10px; }
+.hobbies .hob {
+  display: inline-block; font-family: var(--f-display); font-size: 1.15rem; font-weight: 600; padding: 10px 18px; border-radius: 999px;
+  border: 1px solid var(--line); background: var(--bg-2); transition: transform .4s var(--ease), border-color .3s;
+}
+.hobbies .hob:hover { transform: perspective(500px) translateZ(20px) rotateX(10deg); border-color: var(--accent); }
+.hobbies .hob.q { border-style: dashed; border-color: var(--accent); }
+.note { color: var(--muted); max-width: 52ch; }
+
+/* ---------- 05 origin ---------- */
+.story { list-style: none; margin: 0; padding: 0; display: grid; gap: 0; position: relative; }
+.story::before { content: ""; position: absolute; left: 7px; top: 8px; bottom: 8px; width: 2px; background: linear-gradient(var(--accent), var(--line)); }
+.story li { position: relative; padding: 0 0 34px 40px; display: grid; gap: 8px; }
+.story li::before { content: ""; position: absolute; left: 0; top: 6px; width: 16px; height: 16px; border-radius: 50%; background: var(--bg); border: 2px solid var(--accent); }
+.story .when { font-family: var(--f-mono); font-size: var(--t-label); letter-spacing: .14em; text-transform: uppercase; color: var(--accent); }
+.story p { font-size: 1.15rem; max-width: 48ch; }
+.story q { display: block; font-family: var(--f-serif); font-style: italic; font-size: 1.6rem; line-height: 1.25; color: var(--fg); quotes: "“" "”"; }
+.lesson {
+  margin: 8px 0 0; padding: clamp(24px, 4vw, 40px); border-radius: 24px; background: var(--bg-2); border: 1px solid var(--line);
+  box-shadow: var(--shadow); display: grid; gap: 18px;
+}
+.lesson p { font-family: var(--f-serif); font-size: clamp(1.7rem, 1.1rem + 2.2vw, 2.9rem); line-height: 1.15; }
+.lesson p em { color: var(--accent); }
+.lesson footer { font-family: var(--f-mono); font-size: var(--t-label); letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+
+/* ---------- sticky chapters ---------- */
+.tall { padding-block: 0; position: relative; }
+.stick { position: sticky; top: 0; height: 100svh; display: grid; place-content: center; justify-items: center; text-align: center; gap: 22px; overflow: hidden; padding-top: 56px; }
+.stick .eyebrow::after { display: none; }
+
+/* 06 money */
+.money { height: 180vh; }
+.money .stick { perspective: 900px; }
+.glitch {
+  --p: .5;
+  position: relative; margin: 0; font-family: var(--f-display); font-weight: 800; font-stretch: 75%;
+  font-size: clamp(5rem, 1rem + 22vw, 21rem); line-height: .82; letter-spacing: -.02em;
+  transform: rotateX(calc((.5 - var(--p)) * 34deg)) scale(calc(.9 + var(--p) * .2));
+}
+.glitch > span { display: inline-block; }
+.glitch::before, .glitch::after { content: attr(data-t); position: absolute; inset: 0; pointer-events: none; opacity: 0; }
+.glitch::before { color: var(--glitch-a); }
+.glitch::after { color: var(--glitch-b); }
+.money.on .glitch::before { animation: gA 3.2s steps(1, end) infinite; }
+.money.on .glitch::after { animation: gB 3.2s steps(1, end) infinite; }
+.money.on .glitch > span { animation: gM 3.2s steps(1, end) infinite; }
+@keyframes gA {
+  0%, 58% { opacity: 0; transform: none; clip-path: inset(0 0 0 0); }
+  60% { opacity: .9; transform: translate(-.035em, .01em); clip-path: inset(8% 0 58% 0); }
+  63% { opacity: .9; transform: translate(.045em, -.01em); clip-path: inset(62% 0 6% 0); }
+  66% { opacity: .85; transform: translate(-.02em, 0); clip-path: inset(30% 0 42% 0); }
+  69% { opacity: 0; }
+  86% { opacity: .8; transform: translate(.03em, 0); clip-path: inset(74% 0 4% 0); }
+  88%, 100% { opacity: 0; }
+}
+@keyframes gB {
+  0%, 59% { opacity: 0; transform: none; clip-path: inset(0 0 0 0); }
+  61% { opacity: .9; transform: translate(.04em, -.01em); clip-path: inset(40% 0 30% 0); }
+  64% { opacity: .9; transform: translate(-.05em, .01em); clip-path: inset(4% 0 70% 0); }
+  67% { opacity: .85; transform: translate(.02em, 0); clip-path: inset(70% 0 10% 0); }
+  70% { opacity: 0; }
+  87% { opacity: .8; transform: translate(-.03em, 0); clip-path: inset(12% 0 66% 0); }
+  89%, 100% { opacity: 0; }
+}
+@keyframes gM {
+  0%, 59% { transform: none; }
+  61% { transform: translateX(.02em) skewX(-8deg); }
+  64% { transform: translateX(-.025em) skewX(5deg); }
+  67%, 86% { transform: none; }
+  87% { transform: translateX(.015em); }
+  89%, 100% { transform: none; }
+}
+:root.calm .money.on .glitch::before, :root.calm .money.on .glitch::after, :root.calm .money.on .glitch > span { animation: none; }
+.money-note { font-family: var(--f-mono); font-size: var(--t-label); letter-spacing: .2em; text-transform: uppercase; color: var(--muted); }
+.money-note b { color: var(--accent); font-weight: 500; }
+
+/* 07 freedom */
+.free { height: 230vh; }
+.free .stick { place-content: start center; padding-top: calc(56px + 9vh); }
+.money-top { display: grid; justify-items: center; gap: 22px; transform: translateY(calc(var(--up, 0) * -28vh)) scale(calc(1 - var(--up, 0) * .42)); }
+.free .stick { perspective: 1000px; }
+.free-word {
+  --k: 0;
+  margin: 0; font-family: var(--f-display); font-weight: 800; font-stretch: 75%;
+  font-size: clamp(4rem, .5rem + 16vw, 16rem); line-height: .85; letter-spacing: -.01em;
+  transform-style: preserve-3d; white-space: nowrap;
+}
+.free-word span {
+  display: inline-block;
+  transform: translate3d(calc(var(--x) * var(--k) * 1vw), calc(var(--y) * var(--k) * 1vh), calc(var(--z) * var(--k) * 1px)) rotateX(calc(var(--r) * var(--k) * 1deg)) rotateY(calc(var(--r) * var(--k) * -.6deg));
+  opacity: calc(1 - var(--k) * .55);
+}
+.free-word span:nth-child(5) { color: var(--accent); }
+.free-text { font-size: var(--t-lead); line-height: 1.5; max-width: 34ch; opacity: clamp(0, calc(1 - var(--k) * 1.6), 1); transform: translateY(calc(var(--k) * 30px)); }
+.free-text b { color: var(--accent); font-weight: 600; }
+
+/* 08 principles */
+.rules { height: 340vh; }   /* fills in the first half, then holds a while before the ending */
+.rules .stick { gap: 18px; }
+.rule-q { font-family: var(--f-serif); font-size: clamp(2.1rem, 1.2rem + 3.6vw, 4.4rem); line-height: 1.05; max-width: 16ch; margin: 0; }
+.rule-q em { color: var(--accent); }
+.deck { --f: 1; position: relative; width: min(980px, 92vw); height: 250px; perspective: 1300px; margin-top: 14px; }
+.card {
+  position: absolute; left: 50%; top: 0; width: min(290px, 29vw); height: 230px; padding: 22px;
+  border-radius: 20px; border: 1px solid var(--line); background: var(--bg-2); box-shadow: var(--shadow);
+  display: grid; align-content: space-between; text-align: left;
+  transform: translateX(-50%) translateX(calc(var(--o) * var(--f) * 108%)) translateZ(calc(var(--a) * var(--f) * -40px)) rotateY(calc(var(--o) * var(--f) * -16deg)) rotateZ(calc(var(--o) * (1 - var(--f)) * 6deg));
+  z-index: calc(3 - var(--a));
+}
+.card:nth-child(2) { background: var(--accent); color: var(--on-accent); border-color: transparent; }
+.card small { font-family: var(--f-mono); font-size: var(--t-label); letter-spacing: .14em; text-transform: uppercase; opacity: .7; }
+.card h3 { font-family: var(--f-display); font-weight: 700; font-stretch: 85%; font-size: clamp(1.6rem, 1.2rem + 1vw, 2.2rem); line-height: 1.02; }
+
+/* ---------- end ---------- */
+.end { position: relative; z-index: 2; padding-block: clamp(120px, 20vh, 200px) 48px; text-align: center; display: grid; justify-items: center; gap: 28px; }
+.end .eyebrow { justify-content: center; }
+.end .eyebrow::after { display: none; }
+.orbit-gap { height: min(92svh, 920px); width: 100%; display: grid; align-items: end; justify-items: center; padding-bottom: 3vh; }
+.orbit-gap span { font-family: var(--f-mono); font-size: var(--t-label); letter-spacing: .16em; text-transform: uppercase; color: var(--muted); }
+.yz { perspective: 1400px; width: 100%; display: grid; justify-items: center; }
+.yz-in {
+  --rx: 10deg; --ry: -16deg;
+  display: grid; transform-style: preserve-3d;
+  transform: rotateX(var(--rx)) rotateY(var(--ry)); transition: transform .7s var(--ease);
+  font-family: var(--f-display); font-weight: 800; font-stretch: 75%; font-size: clamp(4.4rem, .5rem + 20vw, 19rem); line-height: .8; letter-spacing: -.02em;
+}
+.yz.idle .yz-in { animation: sway 10s ease-in-out infinite alternate; }
+:root.calm .yz.idle .yz-in { animation: none; }
+@keyframes sway { from { transform: rotateX(12deg) rotateY(-20deg); } to { transform: rotateX(4deg) rotateY(20deg); } }
+.yz-in span { grid-area: 1 / 1; transform: translateZ(calc(var(--d) * -5px)); color: color-mix(in oklab, var(--accent) calc(100% - var(--d) * 9%), var(--bg)); }
+.yz-in span.front { color: var(--fg); }
+.end-line { font-family: var(--f-serif); font-size: clamp(1.8rem, 1.2rem + 2.4vw, 3.2rem); line-height: 1.1; }
+.end-line em { color: var(--accent); }
+.credits { margin: 12px 0 0; display: grid; gap: 10px; width: min(560px, 100%); }
+.credits-h { font-family: var(--f-mono); font-size: var(--t-label); letter-spacing: .2em; text-transform: uppercase; color: var(--muted); }
+.credits div { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.credits dt { text-align: right; font-family: var(--f-mono); font-size: var(--t-label); letter-spacing: .12em; text-transform: uppercase; color: var(--muted); padding-top: .35em; }
+.credits dd { margin: 0; text-align: left; font-family: var(--f-display); font-weight: 600; font-size: 1.15rem; }
+.socials { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+.socials a { text-decoration: none; }
+.socials a:hover { border-color: var(--accent); }
+.restart { height: 48px; padding-inline: 22px; border-radius: 999px; border: 0; background: var(--accent); color: var(--on-accent); font-family: var(--f-mono); font-size: .8rem; letter-spacing: .12em; text-transform: uppercase; transition: transform .3s var(--ease); }
+.restart:hover { transform: translateY(-2px); }
+.fine { color: var(--muted); font-size: .9rem; max-width: 46ch; }
+
+/* ---------- look panel ---------- */
+.look {
+  position: fixed; z-index: 30; right: calc(16px + env(safe-area-inset-right, 0px)); top: calc(68px + env(safe-area-inset-top, 0px));
+  width: min(340px, calc(100vw - 32px)); background: var(--bg-2); border: 1px solid var(--line); border-radius: 18px;
+  padding: 18px; display: grid; gap: 16px; box-shadow: var(--shadow);
+  max-height: calc(100svh - 84px - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px)); overflow-y: auto; overscroll-behavior: contain;
+}
+.look-head { display: flex; justify-content: space-between; align-items: center; }
+.look-head b { font-family: var(--f-display); font-size: 1.25rem; }
+.look fieldset { border: 0; margin: 0; padding: 0; display: grid; gap: 8px; }
+.look legend { padding: 0; margin-bottom: 8px; font-family: var(--f-mono); font-size: var(--t-label); letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.seg { display: flex; flex-wrap: wrap; gap: 6px; }
+.seg button { height: 34px; padding-inline: 12px; border-radius: 10px; border: 1px solid var(--line); background: var(--bg); font-size: .9rem; display: inline-flex; align-items: center; gap: 8px; }
+.seg button[aria-pressed="true"] { border-color: var(--accent); box-shadow: inset 0 0 0 1px var(--accent); }
+.sw { width: 14px; height: 14px; border-radius: 50%; }
+
+/* ---------- engine sound toggles ---------- */
+.snd svg { width: 17px; height: 17px; }
+.snd .spk-on, .snd[aria-pressed="true"] .spk-off, .snd .t-on, .snd[aria-pressed="true"] .t-off { display: none; }
+.snd[aria-pressed="true"] .spk-on, .snd[aria-pressed="true"] .t-on { display: inline; }
+.icon-btn.snd[aria-pressed="true"] { border-color: var(--accent); color: var(--accent); }
+.snd-chip { pointer-events: auto; display: inline-flex; align-items: center; gap: 10px; height: 40px; padding-inline: 16px; border-radius: 999px; border: 1px solid var(--accent); background: color-mix(in oklab, var(--bg) 70%, transparent); font-family: var(--f-mono); font-size: var(--t-label); letter-spacing: .12em; text-transform: uppercase; transition: transform .3s var(--ease), background .3s; }
+.snd-chip:hover { transform: translateY(-2px); }
+.snd-chip[aria-pressed="true"] { background: var(--accent); color: var(--on-accent); }
+.free .snd-chip { position: absolute; left: max(16px, env(safe-area-inset-left, 0px)); bottom: calc(4vh + env(safe-area-inset-bottom, 0px)); }
+
+/* ---------- custom UI: groups and the switches they drive ---------- */
+.look-sub { color: var(--muted); font-size: .88rem; margin-top: -6px; }
+.look details { border-top: 1px solid var(--line); padding-top: 12px; }
+.look details > div { display: grid; gap: 14px; margin-top: 12px; }
+.look summary { cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; font-family: var(--f-display); font-weight: 700; font-size: 1.05rem; }
+.look summary::-webkit-details-marker { display: none; }
+.look summary::after { content: "+"; font-family: var(--f-mono); color: var(--muted); }
+.look details[open] summary::after { content: "−"; }
+.look summary small { font-family: var(--f-mono); font-size: var(--t-label); color: var(--muted); font-weight: 400; margin-left: auto; margin-right: 10px; }
+.look-reset { height: 40px; border-radius: 10px; border: 1px dashed var(--line); background: transparent; font-family: var(--f-mono); font-size: var(--t-label); letter-spacing: .12em; text-transform: uppercase; }
+.look-reset:hover { border-color: var(--accent); }
+:root[data-pat="grid"] .sky { background-image: linear-gradient(color-mix(in oklab, var(--fg) 7%, transparent) 1px, transparent 1px), linear-gradient(90deg, color-mix(in oklab, var(--fg) 7%, transparent) 1px, transparent 1px); background-size: 48px 48px; }
+:root[data-pat="lines"] .sky { background-image: repeating-linear-gradient(135deg, color-mix(in oklab, var(--fg) 6%, transparent) 0 1px, transparent 1px 22px); background-size: auto; }
+:root[data-pat="none"] .sky { background-image: none; }
+:root.c-sharp .like, :root.c-sharp .side, :root.c-sharp .card, :root.c-sharp .profile, :root.c-sharp .lesson, :root.c-sharp .pc-photo, :root.c-sharp .look, :root.c-sharp .gallery figure { border-radius: 4px; }
+:root.c-sharp .chip, :root.c-sharp .pill-btn, :root.c-sharp .icon-btn, :root.c-sharp .hobbies .hob, :root.c-sharp .restart, :root.c-sharp .snd-chip, :root.c-sharp .seg button { border-radius: 4px; }
+:root.c-round .like, :root.c-round .side, :root.c-round .card, :root.c-round .profile, :root.c-round .lesson, :root.c-round .look { border-radius: 32px; }
+:root.c-round .pc-photo, :root.c-round .gallery figure { border-radius: 24px; }
+:root.no-reveal .pre .wi, :root.no-reveal .reveal.pre { opacity: 1 !important; transform: none !important; transition: none !important; }
+:root.no-glitch .money.on .glitch::before, :root.no-glitch .money.on .glitch::after, :root.no-glitch .money.on .glitch > span { animation: none; }
+:root.no-bar .hud-bar { display: none; }
+:root.no-chap .hud-ch { visibility: hidden; }
+:root.no-shadow { --shadow: none !important; }
+:root.no-hint .tap-hint, :root.no-hint .scroll-cue, :root.no-hint .hint { display: none; }
+
+/* ---------- bonus: garage ---------- */
+.garage { height: 250vh; }
+.garage-stick { place-content: stretch; justify-items: stretch; text-align: left; grid-template-rows: auto 1fr auto; padding: calc(56px + 5vh) 0 5vh; gap: 0; }
+.garage-stick > :not(.drag) { position: relative; z-index: 1; width: 100%; max-width: 1240px; margin-inline: auto; padding-inline: clamp(0px, 2.5vw, 32px); pointer-events: none; }
+.drag { position: absolute; inset: 0; z-index: 0; cursor: grab; touch-action: pan-y; }
+.drag:active { cursor: grabbing; }
+.g-head { display: grid; gap: 14px; align-content: start; }
+.g-head .h2 { max-width: 12ch; }
+.h2 em { font-family: var(--f-serif); font-style: italic; font-weight: 400; font-stretch: 100%; letter-spacing: 0; color: var(--accent); }
+.g-foot { grid-row: 3; display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 18px 32px; }
+.g-foot .seg { pointer-events: auto; max-width: 600px; }
+.g-foot .seg button { background: color-mix(in oklab, var(--bg) 78%, transparent); }
+.spec { margin: 0; display: flex; flex-wrap: wrap; gap: 14px 28px; }
+.spec div { display: grid; gap: 2px; }
+.spec dt { font-family: var(--f-mono); font-size: var(--t-label); letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+.spec dd { margin: 0; font-family: var(--f-display); font-weight: 700; font-size: 1.6rem; font-variant-numeric: tabular-nums; }
+.hint { width: 100%; font-family: var(--f-mono); font-size: var(--t-label); letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+
+/* ---------- responsive ---------- */
+@media (max-width: 900px) {
+  .hero-grid { grid-template-columns: minmax(0, 1fr); }
+  .float { justify-self: start; width: min(360px, 100%); }
+}
+@media (max-width: 720px) {
+  .ch { padding-block: 88px; }
+  .sides { grid-template-columns: minmax(0, 1fr); }
+  .side.a, .side.b { transform: none; min-height: 0; }
+  .likes { grid-template-columns: minmax(0, 1fr); width: calc(100% - 104px); margin-inline: auto; row-gap: 30px; }
+  .money { height: 150vh; }
+  .free { height: 190vh; }
+  .garage { height: 210vh; }
+  .spec dd { font-size: 1.2rem; }
+  .rules { height: auto; }
+  .rules .stick { position: static; height: auto; padding-block: 88px; }
+  .deck { height: auto; width: 100%; display: grid; gap: 12px; }
+  .card { position: static; width: 100%; height: auto; min-height: 150px; transform: none; gap: 18px; }
+  .credits div { gap: 12px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
+</style>
+
+<div class="sky" aria-hidden="true"></div>
+<canvas id="stage" aria-hidden="true"></canvas>
+<canvas id="pop" aria-hidden="true"></canvas>
+
+<header class="hud">
+  <div class="hud-row">
+    <a class="mark" href="#profil">YANNZ<i>.</i></a>
+    <p class="hud-ch" aria-live="polite"><b id="hudNum">01</b> / 08 <span class="nm">· <span id="hudName">Profil</span></span></p>
+    <div class="hud-act">
+      <button class="icon-btn snd" id="soundBtn" type="button" data-snd aria-pressed="false" aria-label="Suara mesin"><svg class="spk-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9.5h3.5L12 6v12l-4.5-3.5H4z"/><path d="m16 9.5 5 5M21 9.5l-5 5"/></svg><svg class="spk-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9.5h3.5L12 6v12l-4.5-3.5H4z"/><path d="M15.5 9a4 4 0 0 1 0 6M18.2 6.5a7.5 7.5 0 0 1 0 11"/></svg></button>
+      <button class="icon-btn" id="themeBtn" type="button" aria-label="Ganti mode terang atau gelap">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z"/></svg>
+      </button>
+      <button class="pill-btn" id="lookBtn" type="button" aria-expanded="false" aria-controls="look">Tampilan</button>
+    </div>
+  </div>
+  <div class="hud-bar"><i id="bar"></i></div>
+</header>
+
+<aside class="look" id="look" hidden aria-label="Pengaturan tampilan">
+  <div class="look-head"><b>Tampilan</b><button class="icon-btn" id="lookClose" type="button" aria-label="Tutup">✕</button></div>
+  <p class="look-sub" id="lookCount">Atur tampilan sesukamu. Pilihanmu tersimpan di browser ini.</p>
+  <div id="lookBody"></div>
+  <button class="look-reset" id="lookReset" type="button">Kembalikan ke bawaan</button>
+</aside>
+
+<main>
+  <!-- 01 -->
+  <section class="ch hero" id="profil" data-ch="01" data-name="Profil">
+    <div class="wrap">
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="n">01</span> Profil · Save file</p>
+          <h1 class="display" id="heroName" data-bind="name">Yann</h1>
+          <p class="lead">Random kid yang kebetulan lewat. Ini tempatku, isinya tentang aku.</p>
+          <div class="origin-line">
+            <span class="chip"><svg class="flag" viewBox="0 0 3 2" aria-hidden="true"><rect width="3" height="1" fill="#e3242b"/><rect y="1" width="3" height="1" fill="#ffffff"/></svg><span data-bind="origin">Indonesia</span></span>
+            <span class="chip"><span class="dot"></span>Mode tenang</span>
+          </div>
+        </div>
+        <div class="float">
+          <article class="profile" id="profileCard" aria-label="Kartu profil">
+            <div class="pc-top"><span>Profil</span><span>ID · 001</span></div>
+            <div class="pc-photo"><img id="pcImg" alt="Foto profil" hidden><span class="pc-mono" id="pcMono" aria-hidden="true">Y</span></div>
+            <dl class="pc-rows">
+              <div><dt>Nama</dt><dd data-bind="name">Yann</dd></div>
+              <div><dt>Asal</dt><dd><svg class="flag" viewBox="0 0 3 2" aria-hidden="true"><rect width="3" height="1" fill="#e3242b"/><rect y="1" width="3" height="1" fill="#ffffff"/></svg><span data-bind="origin">Indonesia</span></dd></div>
+            </dl>
+          </article>
+        </div>
+      </div>
+      <p class="scroll-cue"><span>↓</span> Gulir pelan-pelan</p>
+    </div>
+  </section>
+
+  <!-- 02 -->
+  <section class="ch intro" id="perkenalan" data-ch="02" data-name="Perkenalan">
+    <div class="wrap">
+      <div class="col">
+        <p class="eyebrow"><span class="n">02</span> Perkenalan</p>
+        <p class="say split">Hi, namaku <em data-bind="name">Yann</em>. Aku cuma random kid yang kebetulan lewat. <span class="soft">Di sini tempat portfolio-ku. Isinya tentang aku, apa yang kusuka, apa yang kupegang, dan ke mana aku mau pergi.</span></p>
+        <div class="gallery" id="gallery" hidden></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03 -->
+  <section class="ch" id="suka" data-ch="03" data-name="Hal yang kusuka">
+    <div class="wrap">
+      <div class="col">
+        <p class="eyebrow"><span class="n">03</span> Hal yang kusuka</p>
+        <h2 class="h2 split">Hal-hal kecil yang bikin hari terasa enak.</h2>
+        <ul class="likes">
+          <li class="reveal" style="--ry:-8deg"><div class="like" role="button" data-obj="pad" tabindex="0">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 8h11a4 4 0 0 1 3.9 4.9l-.9 4a2.4 2.4 0 0 1-4.1 1.1L14.6 16H9.4l-1.8 2a2.4 2.4 0 0 1-4.1-1.1l-.9-4A4 4 0 0 1 6.5 8Z"/><path d="M8 11v3M6.5 12.5h3M15.5 12h.01M17.5 13.5h.01"/></svg>
+            <b>Main game</b><span>Dari kecil sampai sekarang, masih nomor satu.</span></div></li>
+          <li class="reveal" style="--ry:8deg;--dl:60ms"><div class="like" role="button" data-obj="code" tabindex="0">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 7-5 5 5 5M16 7l5 5-5 5M13.5 5l-3 14"/></svg>
+            <b>Coding vibes</b><span>Ngoding pelan-pelan, ditemani suasana.</span></div></li>
+          <li class="reveal" style="--ry:-8deg;--dl:90ms"><div class="like" role="button" data-obj="book" tabindex="0">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15H6.5A2.5 2.5 0 0 0 4 20.5z"/><path d="M4 20.5A2.5 2.5 0 0 1 6.5 18H20v3H6.5A2.5 2.5 0 0 1 4 20.5"/></svg>
+            <b>Belajar &amp; membaca</b><span>Cari tahu hal baru, satu halaman demi satu halaman.</span></div></li>
+          <li class="reveal" style="--ry:-8deg;--dl:120ms"><div class="like" role="button" data-obj="phones" tabindex="0">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 15v-3a8 8 0 0 1 16 0v3"/><rect x="3" y="14" width="4.5" height="6.5" rx="1.6"/><rect x="16.5" y="14" width="4.5" height="6.5" rx="1.6"/></svg>
+            <b>Dengerin musik</b><span>Teman di setiap suasana.</span></div></li>
+          <li class="reveal" style="--ry:8deg;--dl:60ms"><div class="like" role="button" data-obj="zzz" tabindex="0">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 14.5A7.5 7.5 0 0 1 9.5 5a7.5 7.5 0 1 0 9.5 9.5Z"/><path d="M15 4h3l-3 3h3"/></svg>
+            <b>Tidur</b><span>Nggak perlu dijelasin.</span></div></li>
+          <li class="reveal" style="--ry:-8deg;--dl:120ms"><div class="like" role="button" data-obj="ask" tabindex="0">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="5.5" cy="12" r="1.2"/><circle cx="12" cy="12" r="1.2"/><circle cx="18.5" cy="12" r="1.2"/></svg>
+            <b>Dan lain-lain</b><span>Masih banyak, nggak muat ditulis semua.</span></div></li>
+        </ul>
+        <p class="tap-hint">Ketuk kartunya</p>
+        <blockquote class="quiet reveal">Paling suka menyendiri di tempat yang tenang, karena <em>ketenangan adalah diriku.</em><small>Hal yang paling kusuka dari semuanya</small></blockquote>
+      </div>
+    </div>
+  </section>
+
+  <!-- 04 -->
+  <section class="ch" id="keahlian" data-ch="04" data-name="Keahlian &amp; hobi">
+    <div class="wrap">
+      <div class="col">
+        <p class="eyebrow"><span class="n">04</span> Keahlian &amp; hobi</p>
+        <h2 class="h2 split">Satu keahlian, dua sisi.</h2>
+        <div class="sides reveal">
+          <article class="side a">
+            <span class="sign">+ Rp</span>
+            <span class="tag">Sisi A</span>
+            <h3>Bisa menghasilkan uang</h3>
+            <p>Kalau boleh dibilang keahlian, ya ini.</p>
+          </article>
+          <article class="side b">
+            <span class="sign">− Rp</span>
+            <span class="tag">Sisi B</span>
+            <h3>Bisa juga menghabiskan uang 😭</h3>
+            <p>Sama jagonya, sayangnya.</p>
+          </article>
+        </div>
+        <h3 class="hobby-h reveal">Hobi</h3>
+        <ul class="hobbies reveal">
+          <li><span class="hob">Main game</span></li>
+          <li><span class="hob">Belajar</span></li>
+          <li><span class="hob">Membaca</span></li>
+          <li><span class="hob q">Mencari tahu hal baru?</span></li>
+        </ul>
+        <p class="note reveal">Yang terakhir aku nggak tahu bisa dibilang hobi atau bukan. Aku cuma ingin terus mencari tahu hal baru.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 05 -->
+  <section class="ch" id="awal" data-ch="05" data-name="Awal mula">
+    <div class="wrap">
+      <div class="col">
+        <p class="eyebrow"><span class="n">05</span> Awal mula</p>
+        <h2 class="h2 split">Dari mimpi anak kecil ke satu kalimat.</h2>
+        <ol class="story">
+          <li class="reveal" style="--ry:-10deg"><span class="when">Waktu kecil</span>
+            <p>Aku suka banget main game. Dulu aku pernah bilang:</p>
+            <q>Enak ya kalau punya uang banyak, bisa beli apa pun yang disukai.</q></li>
+          <li class="reveal" style="--ry:-10deg"><span class="when">Masuk SMP</span>
+            <p>Mulai beranjak dewasa, aku mulai memikirkan ekonomi. Gimana caranya di usia segini aku bisa menghasilkan uang sendiri, dengan caraku.</p></li>
+          <li class="reveal" style="--ry:-10deg"><span class="when">Mencari tahu</span>
+            <p>Dari situ aku mulai mencari tahu, lihat-lihat di berbagai sosmed.</p></li>
+          <li class="reveal" style="--ry:-10deg"><span class="when">Sampai suatu hari</span>
+            <p>Aku menemukan satu video yang isinya begini.</p></li>
+        </ol>
+        <blockquote class="lesson reveal">
+          <p>“Menghasilkan uang itu bukan hal yang kamu cari. Kalau ingin menghasilkan uang, <em>kenali dan kendalikan dirimu sendiri.</em>”</p>
+          <footer>Kalimat yang masih kupegang sampai sekarang</footer>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <!-- 06 -->
+  <section class="ch tall money" id="money" data-ch="06" data-name="Money" data-sticky="money">
+    <div class="stick">
+      <div class="money-top">
+        <p class="eyebrow"><span class="n">06</span> Hal yang paling sangat kusukai</p>
+        <h2 class="glitch" data-t="MONEY"><span>MONEY</span></h2>
+        <p class="money-note">Satu kata. <b>Cukup.</b></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- bonus -->
+  <section class="ch tall garage" id="garasi" data-ch="★" data-name="Bonus · Garasi" data-sticky="garage">
+    <div class="stick garage-stick">
+      <div class="drag" id="drag" aria-hidden="true"></div>
+      <div class="g-head">
+        <p class="eyebrow"><span class="n">Bonus</span> Garasi</p>
+        <h2 class="h2">Mimpi anak kecil itu, <em>parkir di sini.</em></h2>
+      </div>
+      <div class="g-foot">
+        <dl class="spec">
+          <div><dt>Mesin</dt><dd>V8 4.5 L</dd></div>
+          <div><dt>Tenaga</dt><dd>570 PS</dd></div>
+          <div><dt>0–100 km/j</dt><dd>3,4 dtk</dd></div>
+        </dl>
+        <div class="seg" data-k="paint" role="group" aria-label="Warna mobil"></div>
+        <button class="snd-chip snd" type="button" data-snd aria-pressed="false"><svg class="spk-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9.5h3.5L12 6v12l-4.5-3.5H4z"/><path d="m16 9.5 5 5M21 9.5l-5 5"/></svg><svg class="spk-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9.5h3.5L12 6v12l-4.5-3.5H4z"/><path d="M15.5 9a4 4 0 0 1 0 6M18.2 6.5a7.5 7.5 0 0 1 0 11"/></svg><span class="t-off">Nyalakan suara mesin</span><span class="t-on">Suara mesin nyala</span></button>
+        <p class="hint" id="carHint">Mobil 3D sedang dimuat…</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 07 -->
+  <section class="ch tall free" id="tujuan" data-ch="07" data-name="Tujuan" data-sticky="free">
+    <div class="stick">
+      <p class="eyebrow"><span class="n">07</span> Tujuanku</p>
+      <h2 class="free-word" id="freeWord" aria-label="Freedom">FREEDOM</h2>
+      <p class="free-text">Tujuanku cuma satu, yaitu <b>kebebasan</b>. Aku suka melakukan apa yang diriku sendiri mau. Aku hanya ingin bebas, dan bisa melakukan apa pun yang ingin kulakukan.</p>
+      <button class="snd-chip snd" type="button" data-snd aria-pressed="false"><svg class="spk-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9.5h3.5L12 6v12l-4.5-3.5H4z"/><path d="m16 9.5 5 5M21 9.5l-5 5"/></svg><svg class="spk-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9.5h3.5L12 6v12l-4.5-3.5H4z"/><path d="M15.5 9a4 4 0 0 1 0 6M18.2 6.5a7.5 7.5 0 0 1 0 11"/></svg><span class="t-off">Dengarkan mesinnya</span><span class="t-on">Suara mesin nyala</span></button>
+    </div>
+  </section>
+
+  <!-- 08 -->
+  <section class="ch tall rules" id="prinsip" data-ch="08" data-name="Prinsip" data-sticky="rules">
+    <div class="stick">
+      <p class="eyebrow"><span class="n">08</span> Prinsip</p>
+      <blockquote class="rule-q">Tidak kaya, tidak akan <em>ada rasa.</em></blockquote>
+      <p class="lead">Prinsip yang nyata hanya tiga.</p>
+      <div class="deck" id="deck">
+        <article class="card reveal" style="--o:-1;--a:1"><small>Setiap hari</small><h3>Kedisiplinan</h3></article>
+        <article class="card reveal" style="--o:0;--a:0;--dl:80ms"><small>Setiap saat</small><h3>Kendali penuh atas diri</h3></article>
+        <article class="card reveal" style="--o:1;--a:1;--dl:160ms"><small>Selama apa pun</small><h3>Kesabaran</h3></article>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="end" id="akhir" data-ch="✦" data-name="Akhir">
+  <p class="eyebrow">Akhir dari file ini</p>
+  <div class="orbit-gap" id="orbitGap"><span>Bumi · tempat semua cerita ini dimulai</span></div>
+  <div class="yz idle" id="yz" role="img" aria-label="YANNZ">
+    <div class="yz-in" aria-hidden="true">
+      <span style="--d:8">YANNZ</span><span style="--d:7">YANNZ</span><span style="--d:6">YANNZ</span><span style="--d:5">YANNZ</span>
+      <span style="--d:4">YANNZ</span><span style="--d:3">YANNZ</span><span style="--d:2">YANNZ</span><span style="--d:1">YANNZ</span>
+      <span class="front" style="--d:0">YANNZ</span>
+    </div>
+  </div>
+  <p class="end-line split">Halaman ini selesai. <em>Aku belum.</em></p>
+  <p class="credits-h">Terima kasih sudah main sampai akhir</p>
+  <dl class="credits reveal">
+    <div><dt>Pemeran utama</dt><dd data-bind="name">Yann</dd></div>
+    <div><dt>Asal</dt><dd data-bind="origin">Indonesia</dd></div>
+    <div><dt>Didanai oleh</dt><dd>Rasa penasaran</dd></div>
+    <div><dt>Lokasi syuting</dt><dd>Tempat yang tenang</dd></div>
+    <div><dt>Tujuan akhir</dt><dd>Freedom</dd></div>
+    <div><dt>Status</dt><dd>Masih berjalan…</dd></div>
+  </dl>
+  <div class="socials" id="socials" hidden></div>
+  <div class="socials" id="extraLinks" hidden></div>
+  <button class="restart" id="restart" type="button">↺ Main lagi dari awal</button>
+  <p class="fine">© <span id="yr">2026</span> Yannz. Dibuat pelan-pelan, di tempat yang tenang.<br><small>Model 3D: Ferrari 458 Italia oleh vicent091036. Tekstur Bumi: NASA Blue Marble &amp; Black Marble.</small></p>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+<script>
+
+(() => {
+  const PROFILE = Object.assign({ photo: '', name: 'Yann', origin: 'Indonesia', socials: {}, gallery: [], links: [], files: [] }, window.PROFILE || {});
+  const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
+  const root = document.documentElement;
+  const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));
+  const smooth = t => t * t * (3 - 2 * t);
+  const fine = matchMedia('(pointer: fine)').matches;
+
+  /* ---------- profile data ---------- */
+  $$('[data-bind="name"]').forEach(el => { el.textContent = PROFILE.name; });
+  $$('[data-bind="origin"]').forEach(el => { el.textContent = PROFILE.origin; });
+  $('#pcMono').textContent = (PROFILE.name.trim()[0] || 'Y').toUpperCase();
+  $('#yr').textContent = new Date().getFullYear();
+  if (PROFILE.photo) {
+    const img = $('#pcImg');
+    img.onload = () => { img.hidden = false; $('#pcMono').hidden = true; };
+    img.src = PROFILE.photo;
+  }
+  const okUrl = v => /^https?:\/\//i.test(v) ? v : '';
+  const handle = v => v.trim().replace(/^@/, '');
+  const SOCIAL = {
+    instagram: ['Instagram', v => okUrl(v) || 'https://instagram.com/' + encodeURIComponent(handle(v))],
+    tiktok: ['TikTok', v => okUrl(v) || 'https://www.tiktok.com/@' + encodeURIComponent(handle(v))],
+    whatsapp: ['WhatsApp', v => okUrl(v) || 'https://wa.me/' + v.replace(/\D/g, '').replace(/^0/, '62')],
+    telegram: ['Telegram', v => okUrl(v) || 'https://t.me/' + encodeURIComponent(handle(v))],
+    x: ['X', v => okUrl(v) || 'https://x.com/' + encodeURIComponent(handle(v))]
+  };
+  const soc = $('#socials');
+  Object.entries(PROFILE.socials || {}).forEach(([k, v]) => {
+    if (!v || !SOCIAL[k]) return;
+    const a = document.createElement('a');
+    a.className = 'chip'; a.href = SOCIAL[k][1](String(v)); a.target = '_blank'; a.rel = 'noopener';
+    a.textContent = SOCIAL[k][0];
+    soc.appendChild(a); soc.hidden = false;
+  });
+  const xl = $('#extraLinks');
+  [...(PROFILE.links || []).map(l => [l, false]), ...(PROFILE.files || []).map(l => [l, true])].forEach(([l, isFile]) => {
+    if (!l || !l.url) return;
+    const a = document.createElement('a');
+    a.className = 'chip'; a.href = l.url; a.target = '_blank'; a.rel = 'noopener'; if (isFile) a.setAttribute('download', '');
+    a.textContent = (isFile ? '↓ ' : '↗ ') + (l.label || l.url);
+    xl.appendChild(a); xl.hidden = false;
+  });
+  const gal = $('#gallery');
+  (PROFILE.gallery || []).filter(Boolean).forEach((src, i) => {
+    const f = document.createElement('figure'), im = document.createElement('img');
+    im.src = src; im.alt = 'Foto ' + (i + 1); im.loading = 'lazy'; im.onerror = () => f.remove();
+    f.style.setProperty('--r', ((i % 2 ? 1 : -1) * (2 + i % 3)) + 'deg'); f.appendChild(im); gal.appendChild(f); gal.hidden = false;
+  });
+
+  /* ---------- hero letters + split words ---------- */
+  const hn = $('#heroName');
+  hn.innerHTML = [...hn.textContent].map((c, i) => `<span class="ltr" style="--i:${i}">${c.replace(/[<&]/g, '')}</span>`).join('');
+  hn.setAttribute('aria-label', PROFILE.name);
+  const split = el => {
+    let i = 0;
+    const walk = node => [...node.childNodes].forEach(n => {
+      if (n.nodeType === 3) {
+        const frag = document.createDocumentFragment();
+        n.textContent.split(/(\s+)/).forEach(p => {
+          if (!p) return;
+          if (/^\s+$/.test(p)) { frag.appendChild(document.createTextNode(p)); return; }
+          const w = document.createElement('span'); w.className = 'w';
+          const wi = document.createElement('span'); wi.className = 'wi'; wi.style.setProperty('--i', i++); wi.textContent = p;
+          w.appendChild(wi); frag.appendChild(w);
+        });
+        n.replaceWith(frag);
+      } else if (n.nodeType === 1) walk(n);
+    });
+    walk(el);
+  };
+  $$('.split').forEach(split);
+
+  // FREEDOM letters, each with its own escape route
+  const fw = $('#freeWord');
+  let seed = 7; const rnd = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
+  fw.innerHTML = [...fw.textContent].map(c => {
+    const x = (rnd() * 2 - 1) * 42, y = (rnd() * 2 - 1) * 34, z = -200 - rnd() * 700, r = (rnd() * 2 - 1) * 160;
+    return `<span aria-hidden="true" style="--x:${x.toFixed(1)};--y:${y.toFixed(1)};--z:${z.toFixed(0)};--r:${r.toFixed(0)}">${c}</span>`;
+  }).join('');
+
+  /* ---------- reveal (only things below the first screen start hidden) ---------- */
+  const io = 'IntersectionObserver' in window ? new IntersectionObserver(es => es.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+  }), { rootMargin: '0px 0px -10% 0px' }) : null;
+  $$('.split, .reveal').forEach(el => {
+    if (!io || el.getBoundingClientRect().top < innerHeight * .92) return;
+    el.classList.add('pre'); io.observe(el);
+  });
+
+  /* ---------- look (custom UI) ---------- */
+  const ACCENTS = {
+    amber: { name: 'Amber', d: '#f2b84b', l: '#9a5800' },
+    mint: { name: 'Mint', d: '#6fd6b0', l: '#00715a' },
+    rose: { name: 'Rose', d: '#ff8a9a', l: '#b3203f' },
+    sky: { name: 'Langit', d: '#7cb8ff', l: '#1f5fb8' },
+    lilac: { name: 'Lilac', d: '#b9a2ff', l: '#5b3fc0' }
+  };
+  const PAINTS = {
+    venom: { name: 'Venom', base: '#08080a', line: '#3a3d44', logo: '#f1f2f4', web: 1, lineW: .7, logoScale: .42, metal: .45, wheel: 'dark', sw: 'radial-gradient(circle at 50% 45%,#eef0f2 0 24%,#09090b 27%)' },
+    spider: { name: 'Spider-Man', base: '#b0101a', stripe: '#1a3fb8', line: '#070708', logo: '#070708', web: 1, stripeOn: 1, lower: 1, logoScale: .22, metal: .28, wheel: 'gold', sw: 'conic-gradient(from 200deg,#b0101a 0 55%,#1a3fb8 55% 100%)' },
+    miles: { name: 'Miles', base: '#0b0b0e', line: '#a8101a', logo: '#e0141e', web: 1, lineW: .55, logoScale: .26, metal: .4, wheel: 'dark', sw: 'radial-gradient(circle at 50% 45%,#d0141e 0 24%,#0d0d10 27%)' },
+    hitam: { name: 'Hitam', base: '#0b0c0e', metal: .75, sw: '#0b0c0e' },
+    rosso: { name: 'Rosso', base: '#a3121c', sw: '#a3121c' },
+    giallo: { name: 'Giallo', base: '#f0b81e', metal: .45, wheel: 'dark', sw: '#f0b81e' },
+    bianco: { name: 'Bianco', base: '#ecebe6', metal: .25, wheel: 'dark', sw: '#ecebe6' },
+    sunset: { name: 'Sunset', base: '#ff6b2c', b: '#a3157a', wheel: 'dark', sw: 'linear-gradient(135deg,#ff6b2c,#a3157a)' },
+    aurora: { name: 'Aurora', base: '#13c4b0', b: '#2b3ae0', sw: 'linear-gradient(135deg,#13c4b0,#2b3ae0)' }
+  };
+  // background tones: [dark bg, dark raised, dark line, light bg, light raised, light line]
+  const TONES = {
+    grafit: { name: 'Grafit' },
+    malam: { name: 'Biru malam', v: ['#0c1220', '#131b2d', '#22304a', '#e6eaf2', '#f3f5fa', '#c8d0de'] },
+    hutan: { name: 'Hutan', v: ['#0d1512', '#141f1a', '#22332b', '#e5ebe6', '#f2f6f2', '#c6d3c9'] },
+    ungu: { name: 'Ungu tua', v: ['#120f1a', '#1b1726', '#2d2640', '#ebe8f1', '#f6f4fa', '#d2cbe0'] },
+    pasir: { name: 'Pasir', v: ['#16130f', '#1f1b16', '#332c23', '#efe9df', '#f8f4ec', '#d9cfbf'] },
+    pekat: { name: 'Pekat', v: ['#050505', '#0e0e0f', '#1e1e20', '#f4f4f2', '#ffffff', '#dcdcd8'] }
+  };
+  const FONTS = {
+    bricolage: ['Bricolage', "'Bricolage Grotesque', 'Arial Narrow', system-ui, sans-serif"],
+    serif: ['Serif', "'Instrument Serif', Georgia, serif"],
+    onest: ['Onest', "'Onest', system-ui, sans-serif"],
+    mono: ['Mono', "'JetBrains Mono', ui-monospace, monospace"]
+  };
+  const OPTS = {
+    tone: Object.entries(TONES).map(([k, t]) => [k, t.name]),
+    contrast: [['normal', 'Normal'], ['high', 'Tinggi']],
+    fontH: Object.entries(FONTS).map(([k, f]) => [k, f[0]]),
+    fontB: [['onest', 'Onest'], ['serif', 'Serif'], ['mono', 'Mono']],
+    tsize: [['s', 'Kecil'], ['m', 'Normal'], ['l', 'Besar']],
+    corner: [['sharp', 'Tajam'], ['normal', 'Normal'], ['round', 'Bulat']],
+    width: [['narrow', 'Sempit'], ['normal', 'Normal'], ['wide', 'Lebar']],
+    pattern: [['dots', 'Titik'], ['grid', 'Kotak'], ['lines', 'Garis'], ['none', 'Polos']],
+    shadow: [['on', 'Ada'], ['off', 'Tanpa']],
+    bar: [['on', 'Tampil'], ['off', 'Sembunyi']],
+    chap: [['on', 'Tampil'], ['off', 'Sembunyi']],
+    hint: [['on', 'Tampil'], ['off', 'Sembunyi']],
+    reveal: [['on', 'Nyala'], ['off', 'Mati']],
+    glitch: [['on', 'Nyala'], ['off', 'Mati']],
+    tilt: [['on', 'Nyala'], ['off', 'Mati']],
+    skew: [['off', 'Mati'], ['soft', 'Halus'], ['strong', 'Kuat']],
+    fDense: [['few', 'Sedikit'], ['normal', 'Normal'], ['many', 'Banyak']],
+    fSize: [['s', 'Kecil'], ['m', 'Normal'], ['l', 'Besar']],
+    fSpeed: [['slow', 'Pelan'], ['normal', 'Normal'], ['fast', 'Cepat']],
+    stars: [['off', 'Mati'], ['normal', 'Normal'], ['many', 'Ramai']],
+    vol: [['low', 'Pelan'], ['mid', 'Sedang'], ['high', 'Keras']],
+    theme: [['system', 'Ikuti sistem'], ['dark', 'Gelap'], ['light', 'Terang']],
+    accent: Object.entries(ACCENTS).map(([k, a]) => [k, a.name]),
+    motion: [['full', 'Penuh'], ['calm', 'Tenang']],
+    q: [['auto', 'Otomatis'], ['eco', 'Hemat'], ['off', 'Mati']],
+    sound: [['off', 'Mati'], ['on', 'Nyala']],
+    paint: Object.entries(PAINTS).map(([k, a]) => [k, a.name])
+  };
+  const GROUPS = [
+    ['Warna & tema', [['theme', 'Mode'], ['accent', 'Warna aksen'], ['tone', 'Nada latar'], ['contrast', 'Kontras teks'], ['pattern', 'Pola latar']]],
+    ['Huruf', [['fontH', 'Huruf judul'], ['fontB', 'Huruf teks'], ['tsize', 'Ukuran teks']]],
+    ['Tata letak', [['corner', 'Sudut kartu'], ['width', 'Lebar konten'], ['shadow', 'Bayangan'], ['bar', 'Bar progres'], ['chap', 'Nama bab di atas'], ['hint', 'Petunjuk kecil']]],
+    ['Gerak & efek', [['motion', 'Gerakan'], ['reveal', 'Animasi kata'], ['glitch', 'Glitch MONEY'], ['tilt', 'Kartu profil miring'], ['skew', 'Miring saat scroll'], ['stars', 'Garis bintang']]],
+    ['3D', [['q', 'Kualitas 3D'], ['fDense', 'Jumlah objek latar'], ['fSize', 'Ukuran objek latar'], ['fSpeed', 'Kecepatan objek latar'], ['paint', 'Warna mobil']]],
+    ['Suara', [['sound', 'Suara'], ['vol', 'Volume']]]
+  ];
+  const DEFAULTS = { tone: 'grafit', contrast: 'normal', fontH: 'bricolage', fontB: 'onest', tsize: 'm', corner: 'normal', width: 'normal', pattern: 'dots', shadow: 'on', bar: 'on', chap: 'on', hint: 'on',
+    reveal: 'on', glitch: 'on', tilt: 'on', skew: 'strong', fDense: 'normal', fSize: 'm', fSpeed: 'normal', stars: 'normal', vol: 'mid' };
+  {
+    const n = GROUPS.reduce((a, g) => a + g[1].length, 0);
+    $('#lookCount').textContent = n + ' pengaturan. Pilihanmu tersimpan di browser ini.';
+    $('#lookBody').innerHTML = GROUPS.map(([g, items], i) => `<details${i === 0 ? ' open' : ''}><summary>${g}<small>${items.length}</small></summary><div>${items.map(([k, l]) => `<fieldset><legend>${l}</legend><div class="seg" data-k="${k}"></div></fieldset>`).join('')}</div></details>`).join('');
+  }
+  const KEY = 'yannz-look-v2';
+  const hostTheme = root.getAttribute('data-theme');
+  let look = { ...DEFAULTS, theme: 'system', accent: 'amber', motion: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'calm' : 'full', q: 'auto', paint: 'venom', sound: 'on' };
+  try { const st = JSON.parse(localStorage.getItem(KEY) || '{}'); if (st.soundV !== 2) delete st.sound; Object.assign(look, st); } catch (e) {}
+  look.soundV = 2;
+  const save = () => { try { localStorage.setItem(KEY, JSON.stringify(look)); } catch (e) {} };
+  const listeners = [];
+  const apply = () => {
+    if (look.theme === 'system') { hostTheme ? root.setAttribute('data-theme', hostTheme) : root.removeAttribute('data-theme'); }
+    else root.setAttribute('data-theme', look.theme);
+    const a = ACCENTS[look.accent] || ACCENTS.amber;
+    root.style.setProperty('--accent-d', a.d); root.style.setProperty('--accent-l', a.l);
+    root.classList.toggle('calm', look.motion === 'calm');
+    root.classList.toggle('no3d', look.q === 'off');
+    root.classList.toggle('fx', look.motion !== 'calm');
+    const dark = getComputedStyle(root).colorScheme.includes('dark'), T6 = TONES[look.tone] && TONES[look.tone].v;
+    ['--bg', '--bg-2', '--line'].forEach((v, i) => T6 ? root.style.setProperty(v, T6[dark ? i : i + 3]) : root.style.removeProperty(v));
+    if (look.contrast === 'high') root.style.setProperty('--muted', dark ? '#c3cacd' : '#38414a'); else root.style.removeProperty('--muted');
+    root.style.setProperty('--f-display', FONTS[look.fontH] ? FONTS[look.fontH][1] : FONTS.bricolage[1]);
+    root.style.setProperty('--f-body', FONTS[look.fontB] ? FONTS[look.fontB][1] : FONTS.onest[1]);
+    root.style.fontSize = look.tsize === 's' ? '14.5px' : look.tsize === 'l' ? '18px' : '';
+    root.style.setProperty('--wrap', look.width === 'narrow' ? '1020px' : look.width === 'wide' ? '1480px' : '1240px');
+    root.classList.toggle('c-sharp', look.corner === 'sharp'); root.classList.toggle('c-round', look.corner === 'round');
+    root.setAttribute('data-pat', look.pattern);
+    root.classList.toggle('no-shadow', look.shadow === 'off'); root.classList.toggle('no-bar', look.bar === 'off');
+    root.classList.toggle('no-chap', look.chap === 'off'); root.classList.toggle('no-hint', look.hint === 'off');
+    root.classList.toggle('no-reveal', look.reveal === 'off'); root.classList.toggle('no-glitch', look.glitch === 'off');
+    $$('.seg').forEach(seg => seg.querySelectorAll('button').forEach(b => b.setAttribute('aria-pressed', String(look[seg.dataset.k] === b.dataset.v))));
+    listeners.forEach(f => f());
+  };
+  $$('.seg').forEach(seg => {
+    const k = seg.dataset.k;
+    seg.innerHTML = OPTS[k].map(([v, n]) => `<button type="button" data-v="${v}">${k === 'accent' ? `<span class="sw" style="background:${ACCENTS[v].d}"></span>` : k === 'paint' ? `<span class="sw" style="background:${PAINTS[v].sw};box-shadow:0 0 0 1px var(--line)"></span>` : ''}${n}</button>`).join('');
+    seg.addEventListener('click', e => { const b = e.target.closest('button'); if (!b) return; look[k] = b.dataset.v; save(); apply(); });
+  });
+  /* ---------- supercar engine: one recording (sound/engine.mp3), cut into parts and played to match the car ----------
+     0–9.5 s launch through first gear · 9.5–18.5 s two full gear pulls (looped while driving) · 20–26 s lift-off and crackle
+     32.6–35.4 s a hard rev (garage blips) · 42.5–52 s low burble (idle loop). */
+  const Engine = (() => {
+    const CUT = { driveLoop: [9.46, 18.5], lift: [20, 6], rev: [32.6, 2.8], idle: [42.5, 52] };
+    let lastClink = 0, ctx = null, buf = null, loading = false, want = false, master = null, idle = null, idleG = null, drive = null, driveG = null, driving = false, revAt = 0;
+    const build = () => {
+      const AC = window.AudioContext || window.webkitAudioContext; if (!AC) return false;
+      ctx = new AC(); master = ctx.createGain(); master.gain.value = 0; master.connect(ctx.destination);
+      return true;
+    };
+    const load = () => {
+      if (loading) return; loading = true;
+      fetch('sound/engine.mp3').then(r => { if (!r.ok) throw new Error(r.status); return r.arrayBuffer(); })
+        .then(ab => new Promise((ok, no) => ctx.decodeAudioData(ab, ok, no)))
+        .then(b => { buf = b; startIdle(); })
+        .catch(e => { loading = false; console.warn('Suara mesin gagal dimuat:', e); });
+    };
+    const voice = (gain) => { const g = ctx.createGain(); g.gain.value = gain; g.connect(master); return g; };
+    const src = (g, loop) => { const n = ctx.createBufferSource(); n.buffer = buf; if (loop) { n.loop = true; n.loopStart = loop[0]; n.loopEnd = loop[1]; } n.connect(g); return n; };
+    const startIdle = () => { idleG = voice(0); idle = src(idleG, CUT.idle); idle.start(0, CUT.idle[0]); };
+    const oneShot = ([at, len], level) => {
+      const t = ctx.currentTime, g = voice(0), n = src(g);
+      g.gain.setValueAtTime(0, t); g.gain.linearRampToValueAtTime(level, t + .06);
+      g.gain.setValueAtTime(level, t + len - .5); g.gain.linearRampToValueAtTime(0, t + len);
+      n.start(t, at, len); n.onended = () => g.disconnect();
+    };
+    const fadeOut = (g, n, sec) => { const t = ctx.currentTime; g.gain.cancelScheduledValues(t); g.gain.setValueAtTime(g.gain.value, t); g.gain.linearRampToValueAtTime(0, t + sec); n.stop(t + sec + .05); };
+    return {
+      get on() { return want; },
+      set(onState) {
+        want = onState;
+        const active = !navigator.userActivation || navigator.userActivation.hasBeenActive;   // audio may only start after the visitor's first tap
+        if (want && !ctx && active && !build()) { want = false; return; }
+        if (!ctx) return;
+        if (want && ctx.state !== 'running') ctx.resume().catch(() => {});
+        master.gain.setTargetAtTime(want ? .9 * (look.vol === 'low' ? .4 : look.vol === 'high' ? 1.4 : 1) : 0, ctx.currentTime, .15);
+      },
+      resume() { if (want && !ctx) this.set(true); if (want && ctx && ctx.state !== 'running') ctx.resume().catch(() => {}); },
+      // a coin landing on a stack: a bright inharmonic ring, a tick, and a small thud; k = level, so it rises in pitch a little
+      clink(k) {
+        if (!ctx || !want || ctx.state !== 'running') return;
+        const now = ctx.currentTime; if (now - lastClink < .07) return; lastClink = now;
+        const t = now + .005, lift = 1 + (k % 6) * .012;   // the classic "ting-ting": B5 then E6
+        [[987.8 * lift, 0, .07, .16], [1318.5 * lift, .055, .26, .14]].forEach(([f, at, d, a]) => {
+          const o = ctx.createOscillator(), g = ctx.createGain();
+          o.type = 'triangle'; o.frequency.value = f;
+          g.gain.setValueAtTime(0, t + at); g.gain.linearRampToValueAtTime(a, t + at + .006); g.gain.exponentialRampToValueAtTime(.0001, t + at + d);
+          o.connect(g); g.connect(master); o.start(t + at); o.stop(t + at + d + .02);
+        });
+      },
+      // presence: how much of the car is on screen; speed 0..1; thr 0..1
+      update(presence, speed, thr) {
+        if (want && ctx && presence > 0) load();   // the engine recording is fetched only once the car shows up
+        if (!ctx || !want || !buf || ctx.state !== 'running') return;
+        const t = ctx.currentTime;
+        if (!driving && speed > .2 && presence > .2) {          // pull away: launch, then gear after gear
+          driving = true; driveG = voice(0); drive = src(driveG, CUT.driveLoop); drive.start(t, 0);
+          driveG.gain.linearRampToValueAtTime(1, t + .25);
+        } else if (driving && (speed < .12 || presence < .05)) { // lift off: the crackle tail
+          driving = false; fadeOut(driveG, drive, .45); if (presence > .05) oneShot(CUT.lift, .85);
+        }
+        if (driving) driveG.gain.setTargetAtTime(presence, t, .2);   // fades with the car as it drives away
+        idleG.gain.setTargetAtTime(driving ? 0 : presence * .55, t, .25);
+        if (!driving && thr > .55 && presence > .3 && t > revAt) { oneShot(CUT.rev, .9 * presence); revAt = t + 2.6; }
+      }
+    };
+  })();
+  ['pointerdown', 'keydown', 'touchend'].forEach(ev => addEventListener(ev, () => Engine.resume(), { passive: true }));
+  $$('[data-snd]').forEach(b => b.addEventListener('click', () => { look.sound = look.sound === 'on' ? 'off' : 'on'; save(); apply(); }));
+  listeners.push(() => { Engine.set(look.sound === 'on');   // also re-applies the volume
+ $$('[data-snd]').forEach(b => b.setAttribute('aria-pressed', String(look.sound === 'on'))); });
+
+  $('#lookReset').addEventListener('click', () => { Object.assign(look, DEFAULTS, { theme: 'system', accent: 'amber', motion: 'full', q: 'auto', paint: 'venom', sound: 'on' }); save(); apply(); });
+  const isDark = () => getComputedStyle(root).colorScheme.includes('dark');
+  $('#themeBtn').addEventListener('click', () => { look.theme = isDark() ? 'light' : 'dark'; save(); apply(); });
+  const panel = $('#look'), lb = $('#lookBtn');
+  const setPanel = open => { panel.hidden = !open; lb.setAttribute('aria-expanded', String(open)); };
+  lb.addEventListener('click', () => setPanel(panel.hidden));
+  $('#lookClose').addEventListener('click', () => setPanel(false));
+  addEventListener('keydown', e => { if (e.key === 'Escape') setPanel(false); });
+  matchMedia('(prefers-color-scheme: dark)').addEventListener?.('change', () => apply());
+  apply();
+
+  $('#restart').addEventListener('click', () => scrollTo({ top: 0, behavior: look.motion === 'calm' ? 'auto' : 'smooth' }));
+
+  /* ---------- pointer tilt (desktop only) ---------- */
+  const pointer = { x: 0, y: 0 };
+  if (fine) {
+    const card = $('#profileCard'), yz = $('#yz'), yzIn = yz.querySelector('.yz-in');
+    let pend = false, ev = null;
+    addEventListener('pointermove', e => {
+      ev = e; pointer.x = e.clientX / innerWidth * 2 - 1; pointer.y = e.clientY / innerHeight * 2 - 1;
+      if (pend) return; pend = true;
+      requestAnimationFrame(() => {
+        pend = false;
+        if (look.motion === 'calm' || look.tilt === 'off') return;
+        const r = card.getBoundingClientRect();
+        if (r.bottom > 0 && r.top < innerHeight) {
+          const dx = clamp((ev.clientX - (r.left + r.width / 2)) / (r.width * 1.4), -1, 1), dy = clamp((ev.clientY - (r.top + r.height / 2)) / (r.height * 1.4), -1, 1);
+          card.style.setProperty('--ry', (dx * 12).toFixed(2) + 'deg'); card.style.setProperty('--rx', (-dy * 10).toFixed(2) + 'deg');
+        }
+        const yr = yz.getBoundingClientRect();
+        if (yr.bottom > 0 && yr.top < innerHeight) {
+          yz.classList.remove('idle');
+          yzIn.style.setProperty('--ry', (pointer.x * 26).toFixed(2) + 'deg'); yzIn.style.setProperty('--rx', (10 - pointer.y * 14).toFixed(2) + 'deg');
+        }
+      });
+    }, { passive: true });
+    card.addEventListener('pointerleave', () => { card.style.setProperty('--rx', '0deg'); card.style.setProperty('--ry', '0deg'); });
+  }
+
+  /* ---------- scroll: chapters, progress, sticky scenes ---------- */
+  const secs = $$('[data-ch]').map(el => ({ el, id: el.id, top: 0, h: 1 }));
+  const stickies = $$('[data-sticky]').map(el => ({ el, kind: el.dataset.sticky, top: 0, h: 1, last: -1 }));
+  const deck = $('#deck'), money = $('#money'), gapEl = $('#orbitGap');
+  let gapMid = 0;
+  let docH = 1, vh = innerHeight;
+  const measure = () => {
+    vh = innerHeight;
+    secs.forEach(s => { const r = s.el.getBoundingClientRect(); s.top = r.top + scrollY; s.h = Math.max(1, r.height); });
+    stickies.forEach(s => { const r = s.el.getBoundingClientRect(); s.top = r.top + scrollY; s.h = Math.max(1, r.height); s.last = -1; });
+    docH = Math.max(1, document.documentElement.scrollHeight - vh);
+    { const r = gapEl.getBoundingClientRect(); gapMid = r.top + scrollY + r.height / 2; }
+  };
+  measure();
+  if (window.ResizeObserver) new ResizeObserver(measure).observe(document.body);
+  document.fonts?.ready.then(measure);
+  if (io) new IntersectionObserver(es => es.forEach(e => money.classList.toggle('on', e.isIntersecting))).observe(money);
+  else money.classList.add('on');
+
+  const bar = $('#bar'), hudNum = $('#hudNum'), hudName = $('#hudName');
+  let curCh = -1, lastY = -1;
+  const scene = { i: 0, j: 0, b: 0, t: 0, p: {} };
+  const onScroll = () => {
+    const y = scrollY;
+    if (y === lastY) return; lastY = y;
+    bar.style.transform = `scaleX(${clamp(y / docH).toFixed(4)})`;
+    const a = y + vh * .5;
+    scene.gc = gapMid - y; scene.vh = vh;
+    let i = 0; while (i < secs.length - 1 && a >= secs[i + 1].top) i++;
+    const s = secs[i];
+    scene.i = i; scene.j = Math.min(i + 1, secs.length - 1);
+    scene.t = clamp((a - s.top) / s.h);
+    scene.b = smooth(clamp((scene.t - .72) / .28));
+    if (i !== curCh) { curCh = i; hudNum.textContent = s.el.dataset.ch; hudName.textContent = s.el.dataset.name; }
+    for (const st of stickies) {
+      if (y + vh < st.top - 50 || y > st.top + st.h + 50) continue;
+      const p = clamp((y - st.top) / Math.max(1, st.h - vh));
+      if (Math.abs(p - st.last) < .0008) continue;
+      st.last = p; scene.p[st.kind] = p;
+      if (st.kind === 'money') { st.el.querySelector('.glitch').style.setProperty('--p', p.toFixed(4)); st.el.querySelector('.stick').style.setProperty('--up', smooth(clamp((p - .3) / .3)).toFixed(4)); }
+      else if (st.kind === 'free') {
+        const k = p < .38 ? 1 - smooth(p / .38) : p > .8 ? smooth((p - .8) / .2) * .7 : 0;
+        fw.style.setProperty('--k', k.toFixed(4)); st.el.querySelector('.free-text').style.setProperty('--k', k.toFixed(4));
+      } else if (st.kind === 'rules' && innerWidth > 720) {
+        deck.style.setProperty('--f', smooth(clamp((p - .06) / .3)).toFixed(4));
+      }
+    }
+  };
+  addEventListener('resize', () => { measure(); lastY = -1; onScroll(); });
+  onScroll();
+
+  /* ---------- 3D stage ---------- */
+  // garage: drag to spin the car
+  let dragYaw = 0, dragV = 0, dragX = null, velS = 0;
+  const drag = $('#drag');
+  drag.addEventListener('pointerdown', e => { dragX = e.clientX; dragV = 0; try { drag.setPointerCapture(e.pointerId); } catch (er) {} });
+  drag.addEventListener('pointermove', e => { if (dragX === null) return; dragV = (e.clientX - dragX) * .012; dragX = e.clientX; dragYaw += dragV; });
+  ['pointerup', 'pointercancel', 'lostpointercapture'].forEach(t => drag.addEventListener(t, () => { dragX = null; }));
+
+  let showcase = null;   // set by the 3D stage: pops an object out in front of the page
+  const stage = initStage();
+  let hl = null;
+  $$('[data-obj]').forEach(el => {
+    const go = () => showcase && showcase(el.dataset.obj, el);
+    el.addEventListener('click', go);
+    if (el.tagName !== 'BUTTON') el.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); go(); } });
+  });
+  $$('.like[data-obj]').forEach(el => {
+    el.addEventListener('pointerenter', () => { hl = el.dataset.obj; });
+    el.addEventListener('pointerleave', () => { hl = null; });
+    el.addEventListener('focus', () => { hl = el.dataset.obj; });
+    el.addEventListener('blur', () => { hl = null; });
+  });
+
+  // one loop for everything that moves
+  // scroll speed drives the "brutal" layer: a slight shear on the page, warp in the 3D
+  const mainEl = $('main');
+  let prevY = scrollY, prevT = performance.now(), sk = 0;
+  const loop = now => {
+    requestAnimationFrame(loop);
+    const dtl = Math.max(1, now - prevT); prevT = now;
+    const vel = (scrollY - prevY) / dtl * 1000; prevY = scrollY;
+    velS += (clamp(vel, -9000, 9000) - velS) * .18;
+    if (dragX === null) { dragYaw += dragV; dragV *= .93; }
+    const skT = look.motion === 'calm' || look.skew === 'off' ? 0 : clamp(velS / 4500, -1, 1) * (fine ? -2.2 : -1.2) * (look.skew === 'soft' ? .45 : 1);
+    if (Math.abs(skT - sk) > .015 || (skT === 0 && sk !== 0)) { sk = Math.abs(skT) < .02 ? 0 : skT; mainEl.style.transform = sk ? `skewY(${sk.toFixed(3)}deg)` : ''; }
+    onScroll();
+    if (stage) stage(now, scene, pointer, hl);
+  };
+  requestAnimationFrame(loop);
+
+  function initStage() {
+    if (!window.THREE) { root.classList.add('no3d'); return null; }
+    const T = THREE, canvas = $('#stage');
+    const coarse = !fine;
+    let R;
+    try { R = new T.WebGLRenderer({ canvas, antialias: !coarse, alpha: true, powerPreference: 'high-performance' }); }
+    catch (e) { root.classList.add('no3d'); return null; }
+    R.setClearColor(0x000000, 0);
+    R.outputEncoding = T.sRGBEncoding;
+    R.toneMapping = T.ACESFilmicToneMapping;
+    R.toneMappingExposure = 1.05;
+    const lin = h => new T.Color(h).convertSRGBToLinear();
+
+    const scene3 = new T.Scene();
+    const cam = new T.PerspectiveCamera(35, 1, .1, 60);
+    cam.position.set(0, 0, 10);
+
+    // studio reflections, baked once
+    const pm = new T.PMREMGenerator(R);
+    const env = new T.Scene();
+    env.add(new T.Mesh(new T.BoxGeometry(14, 14, 14), new T.MeshBasicMaterial({ color: lin('#20262a'), side: T.BackSide })));
+    const box = (w, h, x, y, z, rx, ry, c, k) => { const m = new T.Mesh(new T.PlaneGeometry(w, h), new T.MeshBasicMaterial({ color: new T.Color(c).multiplyScalar(k), side: T.DoubleSide })); m.position.set(x, y, z); m.rotation.set(rx, ry, 0); env.add(m); };
+    box(6, 3, 0, 6.5, 0, Math.PI / 2, 0, 0xffffff, 5);
+    box(2.4, 6, 6.5, .5, 1.5, 0, -Math.PI / 2, 0xffd9a0, 3.5);
+    box(2, 5, -6.5, 0, -1, 0, Math.PI / 2, 0x9fc0ff, 2);
+    box(8, 1.2, 0, -2, -6.5, 0, 0, 0xffffff, 1.2);
+    scene3.environment = pm.fromScene(env, .03).texture;
+    pm.dispose();
+
+    const key = new T.DirectionalLight(0xfff0dc, 2.4); key.position.set(4, 6, 6); scene3.add(key);
+    scene3.add(new T.HemisphereLight(0xbcd2ff, 0x1a140e, .35));
+
+    const M = {
+      plastic: new T.MeshStandardMaterial({ color: lin('#1c2226'), roughness: .42, metalness: .05 }),
+      plastic2: new T.MeshStandardMaterial({ color: lin('#2e373d'), roughness: .5, metalness: .05 }),
+      accent: new T.MeshStandardMaterial({ color: lin('#f2b84b'), roughness: .32, metalness: .15 }),
+      metal: new T.MeshStandardMaterial({ color: lin('#d8dadc'), roughness: .2, metalness: 1 }),
+      moon: new T.MeshStandardMaterial({ color: lin('#e6e1d3'), roughness: .95, metalness: 0 }),
+      gold: new T.MeshStandardMaterial({ color: lin('#e3b75c'), roughness: .22, metalness: 1, envMapIntensity: 1.35 }),
+      paper: new T.MeshStandardMaterial({ color: lin('#f2f0e9'), roughness: .7, metalness: 0, side: T.DoubleSide })
+    };
+    // coin face: engraved ring + monogram
+    const cv = document.createElement('canvas'); cv.width = cv.height = 256;
+    const g = cv.getContext('2d');
+    g.fillStyle = '#fff'; g.fillRect(0, 0, 256, 256);
+    g.strokeStyle = '#9a9a9a'; g.lineWidth = 7; g.beginPath(); g.arc(128, 128, 104, 0, Math.PI * 2); g.stroke();
+    g.fillStyle = '#a8a8a8'; for (let k = 0; k < 40; k++) { const a = k / 40 * Math.PI * 2; g.beginPath(); g.arc(128 + Math.cos(a) * 118, 128 + Math.sin(a) * 118, 3, 0, 7); g.fill(); }
+    g.font = '800 132px "Bricolage Grotesque", Arial, sans-serif'; g.textAlign = 'center'; g.textBaseline = 'middle';
+    g.save(); g.translate(128, 128); g.rotate(-Math.PI / 2);   // cylinder caps map the canvas sideways
+    g.fillStyle = '#8a8a8a'; g.fillText('Y', 4, 12); g.fillStyle = '#f4f4f4'; g.fillText('Y', -2, 6); g.restore();
+    const faceTex = new T.CanvasTexture(cv); faceTex.encoding = T.sRGBEncoding; faceTex.anisotropy = 4;
+    M.face = M.gold.clone(); M.face.map = faceTex;
+    const coinMats = [M.gold, M.face, M.face];
+
+    /* --- objects --- */
+    const objs = {};
+    // gamepad
+    {
+      const s = new T.Shape();
+      s.moveTo(-1, .75); s.lineTo(1, .75);
+      s.bezierCurveTo(1.55, .75, 1.7, .4, 1.75, 0); s.bezierCurveTo(1.85, -.6, 1.6, -1, 1.3, -1);
+      s.bezierCurveTo(1, -1, .85, -.55, .6, -.45); s.lineTo(-.6, -.45);
+      s.bezierCurveTo(-.85, -.55, -1, -1, -1.3, -1); s.bezierCurveTo(-1.6, -1, -1.85, -.6, -1.75, 0);
+      s.bezierCurveTo(-1.7, .4, -1.55, .75, -1, .75);
+      const geo = new T.ExtrudeGeometry(s, { depth: .34, bevelEnabled: true, bevelThickness: .14, bevelSize: .12, bevelSegments: 5, curveSegments: 28 });
+      geo.center();
+      const grp = new T.Group(), body = new T.Mesh(geo, M.plastic); grp.add(body);
+      const zf = .31;
+      const btn = new T.SphereGeometry(.11, 20, 14);
+      grp.userData.btns = [];
+      [[1.05, .42], [1.05, 0], [.84, .21], [1.26, .21]].forEach(([x, y], k) => { const b = new T.Mesh(btn, k === 0 ? M.accent : M.plastic2); b.position.set(x, y, zf); b.scale.z = .55; grp.add(b); grp.userData.btns.push(b); });
+      const dp = new T.BoxGeometry(.46, .14, .1);
+      const d1 = new T.Mesh(dp, M.plastic2); d1.position.set(-1.05, .21, zf); grp.add(d1);
+      const d2 = d1.clone(); d2.rotation.z = Math.PI / 2; grp.add(d2);
+      const stick = new T.CylinderGeometry(.19, .21, .16, 28);
+      grp.userData.sticks = [];
+      [-.45, .45].forEach(x => { const m = new T.Mesh(stick, M.plastic2); m.rotation.x = Math.PI / 2; m.position.set(x, -.2, zf + .04); grp.add(m); grp.userData.sticks.push(m); });
+      const led = new T.Mesh(new T.BoxGeometry(.5, .05, .04), M.accent); led.position.set(0, .55, zf - .02); grp.add(led);
+      grp.scale.setScalar(.62);
+      objs.pad = grp;
+    }
+    // headphones
+    {
+      const grp = new T.Group();
+      const band = new T.Mesh(new T.TorusGeometry(.9, .07, 14, 56, Math.PI), M.metal); band.position.y = .1; grp.add(band);
+      const cup = new T.CylinderGeometry(.34, .34, .3, 36), pad = new T.TorusGeometry(.27, .09, 12, 32), ring = new T.TorusGeometry(.34, .025, 8, 40);
+      [-1, 1].forEach(sx => {
+        const c = new T.Mesh(cup, M.plastic); c.rotation.z = Math.PI / 2; c.position.set(sx * .92, -.12, 0); grp.add(c);
+        const p = new T.Mesh(pad, M.plastic2); p.rotation.y = Math.PI / 2; p.position.set(sx * .76, -.12, 0); grp.add(p);
+        const r = new T.Mesh(ring, M.accent); r.rotation.y = Math.PI / 2; r.position.set(sx * 1.075, -.12, 0); grp.add(r);
+      });
+      grp.userData.waves = [];
+      [-1, 1].forEach(sx => [0, .5].forEach(ph => {
+        const m = new T.Mesh(new T.TorusGeometry(.36, .012, 6, 48), new T.MeshBasicMaterial({ color: M.accent.color, transparent: true, depthWrite: false }));
+        m.rotation.y = Math.PI / 2; m.position.set(sx * 1.12, -.12, 0); m.userData = { sx, ph }; grp.add(m); grp.userData.waves.push(m);
+      }));
+      grp.scale.setScalar(.8);
+      objs.phones = grp;
+    }
+    // moon with craters
+    {
+      const geo = new T.SphereGeometry(1, 72, 52), pos = geo.attributes.position, v = new T.Vector3();
+      let sd = 11; const r1 = () => (sd = (sd * 16807) % 2147483647) / 2147483647;
+      const craters = Array.from({ length: 16 }, () => ({ c: new T.Vector3(r1() * 2 - 1, r1() * 2 - 1, r1() * 2 - 1).normalize(), r: .12 + r1() * .28, d: .025 + r1() * .04 }));
+      for (let k = 0; k < pos.count; k++) {
+        v.fromBufferAttribute(pos, k); let h = 0;
+        for (const c of craters) { const ang = v.angleTo(c.c); if (ang < c.r) { const q = ang / c.r; h -= c.d * (1 - q * q); } else if (ang < c.r * 1.25) h += c.d * .25 * (1 - (ang - c.r) / (c.r * .25)); }
+        v.multiplyScalar(1 + h); pos.setXYZ(k, v.x, v.y, v.z);
+      }
+      geo.computeVertexNormals();
+      objs.moon = new T.Mesh(geo, M.moon);
+      const sat = new T.Mesh(new T.IcosahedronGeometry(.07, 1), M.accent); objs.moon.add(sat); objs.moon.userData.sat = sat;
+      objs.moon.scale.setScalar(.85);
+    }
+    // </>
+    {
+      const grp = new T.Group();
+      const chev = new T.Shape([[.4, .52], [.54, .38], [.14, 0], [.54, -.38], [.4, -.52], [-.08, 0]].map(([x, y]) => new T.Vector2(x, y)));
+      const slash = new T.Shape([[.1, .6], [.27, .6], [-.1, -.6], [-.27, -.6]].map(([x, y]) => new T.Vector2(x, y)));
+      const opt = { depth: .16, bevelEnabled: true, bevelThickness: .04, bevelSize: .035, bevelSegments: 3 };
+      const lg = new T.ExtrudeGeometry(chev, opt);
+      const l = new T.Mesh(lg, M.accent); l.position.x = -1.05; grp.add(l);
+      const r = new T.Mesh(lg, M.accent); r.scale.x = -1; r.position.x = 1.05; grp.add(r);
+      const sl = new T.Mesh(new T.ExtrudeGeometry(slash, opt), M.metal); grp.add(sl);
+      grp.userData.parts = [l, r, sl];
+      grp.children.forEach(m => { m.position.z = -.08; });
+      grp.scale.setScalar(.75);
+      objs.code = grp;
+    }
+    // hero coin
+    const coinGeo = new T.CylinderGeometry(.5, .5, .1, 72, 1);
+    const ec = document.createElement('canvas'); ec.width = 512; ec.height = 4; const eg = ec.getContext('2d');
+    for (let q = 0; q < 512; q += 4) { eg.fillStyle = '#fff'; eg.fillRect(q, 0, 2, 4); eg.fillStyle = '#555'; eg.fillRect(q + 2, 0, 2, 4); }
+    M.edge = M.gold.clone(); M.edge.bumpMap = new T.CanvasTexture(ec); M.edge.bumpScale = .012; coinMats[0] = M.edge;
+    M.face.bumpMap = faceTex; M.face.bumpScale = .02;
+    {
+      const grp = new T.Group(), c = new T.Mesh(coinGeo, coinMats); c.rotation.x = Math.PI / 2; grp.add(c);
+      objs.coin = grp;
+    }
+    Object.values(objs).forEach(o => { o.userData.cur = null; scene3.add(o); });
+
+    // instanced coins (rain + stacks) and paper planes
+    /* --- ambient field for the first chapters: many small, medium and (far back) large shapes, always drifting --- */
+    const FIELD = [];
+    {
+      const geos = [new T.IcosahedronGeometry(1, 0), new T.TorusGeometry(.72, .26, 14, 36), new T.OctahedronGeometry(1, 0), new T.BoxGeometry(1.2, 1.2, 1.2), new T.SphereGeometry(.9, 24, 16), new T.TorusKnotGeometry(.55, .17, 72, 10), new T.ConeGeometry(.8, 1.5, 5)];
+      // quiet, monochrome: graphite, brushed steel and dark satin only
+      const fm = (c, r, m) => new T.MeshStandardMaterial({ color: lin(c), roughness: r, metalness: m, envMapIntensity: .9 });
+      const graphite = fm('#2b3034', .38, .7), steel = fm('#8d949a', .3, .9), satin = fm('#1d2124', .55, .2);
+      const mats = [graphite, steel, satin, graphite, steel, satin, graphite];
+      const PER = coarse ? 8 : 12;   // room for 'many'; 'normal' shows 5 / 8 of each
+      let sd3 = 19; const r3 = () => (sd3 = (sd3 * 16807) % 2147483647) / 2147483647;
+      geos.forEach((g, gi) => {
+        const im = new T.InstancedMesh(g, mats[gi], PER); im.instanceMatrix.setUsage(T.DynamicDrawUsage); im.frustumCulled = false; im.visible = false; scene3.add(im);
+        const items = [];
+        for (let q = 0; q < PER; q++) {
+          const layer = (q + gi) % 3;   // 0 small and near, 1 medium, 2 large at the very back
+          items.push({
+            x: r3() * 2 - 1, y: r3(), ph: r3() * 6.3,
+            z: layer === 0 ? -2.2 + r3() * 1.6 : layer === 1 ? -6 - r3() * 2.5 : -14 - r3() * 6,
+            s: layer === 0 ? .06 + r3() * .045 : layer === 1 ? .16 + r3() * .09 : .5 + r3() * .4,
+            vy: (layer === 0 ? .35 : layer === 1 ? .22 : .1) * (.6 + r3() * .8), par: layer === 0 ? .0042 : layer === 1 ? .0026 : .0012,
+            rx: (r3() - .5) * 1.6, ry: (r3() - .5) * 1.6
+          });
+        }
+        FIELD.push({ im, items });
+      });
+    }
+    let fTime = 0;
+    const updateField = (w, mob, hh, hw, dt) => {
+      const dense = look.fDense === 'few' ? .45 : look.fDense === 'many' ? 1 : .67, sizeK = look.fSize === 's' ? .65 : look.fSize === 'l' ? 1.4 : 1;
+      fTime += dt * (look.fSpeed === 'slow' ? .45 : look.fSpeed === 'fast' ? 1.9 : 1) * (look.motion === 'calm' ? .15 : 1);
+      const time = fTime;
+      FIELD.forEach(f => {
+        f.im.visible = w > .01; if (!f.im.visible) return;
+        f.im.count = Math.max(1, Math.round(f.items.length * dense));
+        f.items.forEach((it, q) => {
+          const dz = (10 - it.z) / 10, rangeY = hh * 2.6 * dz;
+          const y = ((it.y * rangeY + time * it.vy + scrollY * it.par) % rangeY + rangeY) % rangeY - rangeY / 2;
+          dummy.position.set(it.x * hw * 1.1 * dz + Math.sin(time * .25 + it.ph) * .35 * dz, y, it.z + Math.sin(time * .4 + it.ph) * .4);
+          dummy.rotation.set(time * it.rx + it.ph, time * it.ry, it.ph * .5);
+          dummy.scale.setScalar(Math.max(.0001, it.s * w * sizeK * (mob ? .6 : 1)));
+          dummy.updateMatrix(); f.im.setMatrixAt(q, dummy.matrix);
+        });
+        f.im.instanceMatrix.needsUpdate = true;
+      });
+    };
+    const NC = coarse ? 66 : 84, NP = coarse ? 22 : 40;
+    const coins = new T.InstancedMesh(coinGeo, coinMats, NC); coins.instanceMatrix.setUsage(T.DynamicDrawUsage); scene3.add(coins);
+    const pgeo = new T.BufferGeometry();
+    pgeo.setAttribute('position', new T.Float32BufferAttribute([
+      .62, 0, 0, -.42, .03, .4, -.42, 0, 0,
+      .62, 0, 0, -.42, 0, 0, -.42, .03, -.4,
+      .62, 0, 0, -.42, 0, 0, -.42, -.15, 0
+    ], 3));
+    pgeo.computeVertexNormals();
+    const planes = new T.InstancedMesh(pgeo, M.paper, NP); planes.instanceMatrix.setUsage(T.DynamicDrawUsage); scene3.add(planes);
+    let sd2 = 3; const r2 = () => (sd2 = (sd2 * 16807) % 2147483647) / 2147483647;
+    const cs = Array.from({ length: NC }, () => ({ x: r2() * 2 - 1, y: r2(), z: 4 - r2() * 12, v: .7 + r2() * .9, ax: r2() * 6, ay: r2() * 6, rs: 1 + r2() * 2.6 }));
+    const ps = Array.from({ length: NP }, () => ({ u: r2(), y: r2() * 2 - 1, z: -1 - r2() * 7, v: .6 + r2() * .7, ph: r2() * 6 }));
+
+    /* --- choreography: [nx, ny, z, scale] per chapter, nx/ny in screen halves --- */
+    const OFF = [1.8, 0, -2, 0];
+
+    /* --- warp field: streaks that stretch with scroll speed (moved in the shader, no CPU per frame) --- */
+    const ND = coarse ? 500 : 1100, dpos = new Float32Array(ND * 6), dend = new Float32Array(ND * 2);
+    for (let q = 0; q < ND; q++) {
+      const x = (r2() * 2 - 1) * 16, y = (r2() * 2 - 1) * 10, z = r2() * 40;
+      dpos.set([x, y, z, x, y, z], q * 6); dend[q * 2 + 1] = 1;
+    }
+    const dgeo = new T.BufferGeometry();
+    dgeo.setAttribute('position', new T.BufferAttribute(dpos, 3)); dgeo.setAttribute('aEnd', new T.BufferAttribute(dend, 1));
+    const dmat = new T.ShaderMaterial({
+      uniforms: { uOff: { value: 0 }, uStretch: { value: .05 }, uCol: { value: new T.Color() }, uAlpha: { value: .4 } },
+      transparent: true, depthWrite: false,
+      vertexShader: 'attribute float aEnd; uniform float uOff; uniform float uStretch; varying float vF;\nvoid main() { vec3 p = position; p.z = mod(p.z + uOff, 40.) - 32.; p.z += aEnd * uStretch; vF = smoothstep(-32., -18., p.z) * (1. - smoothstep(3., 8.5, p.z)); gl_Position = projectionMatrix * modelViewMatrix * vec4(p, 1.); }',
+      fragmentShader: 'uniform vec3 uCol; uniform float uAlpha; varying float vF;\nvoid main() { gl_FragColor = vec4(uCol, uAlpha * vF); }'
+    });
+    const dust = new T.LineSegments(dgeo, dmat); dust.frustumCulled = false; scene3.add(dust);
+    let dOff = 0;
+    const SN = 66, relAt = new Float32Array(SN).fill(-1), landed = new Uint8Array(SN);   // per stacked coin: release time, has it landed
+
+    /* --- the supercar --- */
+    const carRoot = new T.Group(), carModel = new T.Group(); carRoot.add(carModel); carRoot.visible = false; scene3.add(carRoot);
+    const LIVERY_HEAD = `uniform vec3 uRed; uniform vec3 uBlue; uniform vec3 uInk; uniform vec3 uLogoCol; uniform vec3 uGradB;
+        uniform float uWeb; uniform float uStripe; uniform float uLower; uniform float uLogo; uniform float uLogoScale; uniform float uGrad; uniform float uMetal; uniform float uLineW;
+        varying vec3 vCarPos; varying vec3 vCarN;
+        float webLines(vec2 q, vec2 c, float s, float w){
+          vec2 d = q - c; float r = length(d) + 1e-4; float a = atan(d.y, d.x);
+          float N = 16.; float sf = fract(a / 6.28318 * N + .5) - .5;
+          float dSpoke = abs(sf) * 6.28318 / N * r;
+          float rr = r * (1. + .09 * (1. - cos(sf * 6.28318)));     // rings sag between the spokes like a real web
+          float dRing = abs(fract(rr / s + .5) - .5) * s;
+          float dd = min(dSpoke, dRing); float fw = fwidth(dd) * 1.2 + 1e-5;
+          return 1. - smoothstep(w - fw, w + fw, dd);
+        }
+        float lineAA(float d, float w){ float fw = fwidth(d) * 1.2 + 1e-5; return 1. - smoothstep(w - fw, w + fw, abs(d)); }
+        float sdSeg(vec2 p, vec2 a, vec2 b){ vec2 pa = p - a, ba = b - a; float h = clamp(dot(pa, ba) / dot(ba, ba), 0., 1.); return length(pa - ba * h); }
+        // spider emblem as a signed distance (units: emblem size; -y points to the nose)
+        float spiderMark(vec2 q){
+          vec2 m = vec2(abs(q.x), q.y); float w = .032;
+          float d = (length((q - vec2(0., .26)) / vec2(.15, .27)) - 1.) * .15;
+          d = min(d, length(q - vec2(0., -.12)) - .115);
+          d = min(d, length(q - vec2(0., -.3)) - .065);
+          d = min(d, min(sdSeg(m, vec2(.05, -.2), vec2(.34, -.48)), sdSeg(m, vec2(.34, -.48), vec2(.38, -.88))) - w);
+          d = min(d, min(sdSeg(m, vec2(.08, -.13), vec2(.45, -.23)), sdSeg(m, vec2(.45, -.23), vec2(.6, -.58))) - w);
+          d = min(d, min(sdSeg(m, vec2(.08, -.05), vec2(.45, .12)), sdSeg(m, vec2(.45, .12), vec2(.62, .48))) - w);
+          d = min(d, min(sdSeg(m, vec2(.06, .03), vec2(.33, .36)), sdSeg(m, vec2(.33, .36), vec2(.4, .86))) - w);
+          float fw = fwidth(d) + 1e-5; return 1. - smoothstep(-fw, fw, d);
+        }
+        float vLiveryInk = 0.;`;
+    const LIVERY_ALBEDO = `
+          vec3 n = normalize(vCarN), an = abs(n), wt = pow(an, vec3(8.)); wt /= dot(wt, vec3(1.));
+          vec3 p = vCarPos; float SW = .3;
+          float topStripe = smoothstep(.004, -.004, abs(p.x) - SW) * uStripe;
+          float topSeam = lineAA(abs(p.x) - SW, .008) * uStripe;
+          float topWeb = max(max(webLines(p.xz, vec2(.82, -1.6), .14, .0055 * uLineW), webLines(p.xz, vec2(-.82, -1.6), .14, .0055 * uLineW)),
+                             max(webLines(p.xz, vec2(.85, .7), .14, .0055 * uLineW), webLines(p.xz, vec2(-.85, .7), .14, .0055 * uLineW))) * (1. - topStripe) * uWeb;
+          float logo = spiderMark((p.xz - vec2(0., -1.42)) / uLogoScale) * uLogo;
+          float belt = .42 + .06 * sin(p.z * 1.7 + .9);
+          float sideBlue = smoothstep(.004, -.004, p.y - belt) * uLower;
+          float sideWeb = max(webLines(p.zy, vec2(-1.35, .78), .15, .0055 * uLineW), webLines(p.zy, vec2(.75, .8), .15, .0055 * uLineW)) * (1. - sideBlue) * uWeb;
+          float seam = lineAA(p.y - belt, .009) * uLower;
+          float fbStripe = smoothstep(.004, -.004, abs(p.x) - SW) * uStripe;
+          float fbBlue = max(smoothstep(.004, -.004, p.y - .26) * uLower, fbStripe);
+          float fbWeb = max(webLines(p.xy, vec2(.65, .5), .12, .005 * uLineW), webLines(p.xy, vec2(-.65, .5), .12, .005 * uLineW)) * (1. - fbBlue) * uWeb;
+          float fbSeam = max(lineAA(p.y - .26, .008) * (1. - fbStripe) * uLower, lineAA(abs(p.x) - SW, .008) * uStripe);
+          float blue = sideBlue * wt.x + topStripe * wt.y + fbBlue * wt.z;
+          float ink = (sideWeb + seam) * wt.x + (topWeb + topSeam) * wt.y + (fbWeb + fbSeam) * wt.z;
+          vec3 base = mix(uRed, uGradB, uGrad * smoothstep(-2.3, 2.3, p.z + (p.y - .6) * .8));   // nose -> tail fade
+          vec3 col = mix(base, uBlue, clamp(blue, 0., 1.));
+          col = mix(col, uInk, clamp(ink, 0., 1.));
+          diffuseColor.rgb = mix(col, uLogoCol, clamp(logo * wt.y, 0., 1.));
+          vLiveryInk = clamp(ink + logo * wt.y, 0., 1.);
+        `;
+    const LV = { uBodyToCar: { value: new T.Matrix4() }, uBodyToCarN: { value: new T.Matrix3() },
+      uRed: { value: new T.Color() }, uBlue: { value: new T.Color() }, uInk: { value: new T.Color() }, uLogoCol: { value: new T.Color() }, uGradB: { value: new T.Color() },
+      uWeb: { value: 0 }, uStripe: { value: 0 }, uLower: { value: 0 }, uLogo: { value: 0 }, uLogoScale: { value: .3 }, uGrad: { value: 0 }, uMetal: { value: .6 }, uLineW: { value: 1 } };
+    // one shader for every paint: base or gradient, web, stripe, sill and spider emblem, all computed in car space (no UVs)
+    const body = new T.MeshPhysicalMaterial({ metalness: .6, roughness: .3, clearcoat: 1, clearcoatRoughness: .03, envMapIntensity: 1.25 });
+    body.onBeforeCompile = sh => {
+      Object.assign(sh.uniforms, LV);
+      sh.vertexShader = sh.vertexShader.replace('#include <common>', '#include <common>\nuniform mat4 uBodyToCar; uniform mat3 uBodyToCarN; varying vec3 vCarPos; varying vec3 vCarN;')
+        .replace('#include <begin_vertex>', '#include <begin_vertex>\nvCarPos = (uBodyToCar * vec4(transformed, 1.)).xyz; vCarN = normalize(uBodyToCarN * objectNormal);');
+      sh.fragmentShader = sh.fragmentShader.replace('#include <common>', '#include <common>\n' + LIVERY_HEAD)
+        .replace('#include <roughnessmap_fragment>', '#include <roughnessmap_fragment>\n{' + LIVERY_ALBEDO + '}')
+        .replace('#include <normal_fragment_maps>', '#include <normal_fragment_maps>\nmetalnessFactor = mix(uMetal, .2, vLiveryInk); roughnessFactor = mix(roughnessFactor, .45, vLiveryInk);');
+    };
+    const std = (c, r, m, x) => new T.MeshStandardMaterial(Object.assign({ color: lin(c), roughness: r, metalness: m }, x || {}));
+    const CM = {
+      chrome: std('#f2f2f2', .06, 1), alloy: std('#c9cbce', .26, 1), disc: std('#6b6d70', .48, 1), caliper: std('#2b2c30', .4, .3),
+      rubber: std('#161617', .9, 0, { envMapIntensity: .5 }), black: std('#101012', .62, 0), satin: std('#3a3b3e', .55, 0), light: std('#6e6f72', .6, 0),
+      leather: std('#2a2a2c', .62, 0), leatherRed: std('#4a1714', .6, 0), carpet: std('#1d1d1f', 1, 0, { envMapIntensity: .3 }), carbon: std('#1a1b1e', .3, .3), badge: std('#1b1b1d', .35, .9),
+      wing: std('#0a0b0d', .2, .55, { envMapIntensity: 1.2 }), lip: std('#e9eaec', .4, 0),
+      glass: std('#0e1418', .04, .1, { transparent: true, opacity: .55, envMapIntensity: 1.6 }),
+      lens: std('#f4f6f8', .04, 0, { transparent: true, opacity: .5, envMapIntensity: 1.4, emissive: lin('#fff3dc'), emissiveIntensity: .25 }),
+      tail: std('#7a0a0c', .08, 0, { transparent: true, opacity: .85, emissive: lin('#7a0306'), emissiveIntensity: .6 }),
+      led: std('#902018', .2, 0, { emissive: lin('#c01a08'), emissiveIntensity: .7 })
+    };
+    const BY_MAT = { Body_Color: body, metal_chrome: CM.chrome, metal_gray: CM.alloy, Tires: CM.rubber, Glass_Gray: CM.glass, Projector_Glass: CM.lens, Taillight_Glass: CM.tail,
+      Turn_Signal_LED: CM.led, Leather: CM.leather, Leather_red: CM.leatherRed, Interior_dark: CM.satin, Interior_light: CM.light, plastic_gray: CM.satin, Carpet: CM.carpet,
+      Ferrari_Yellow: CM.badge, _0098_DodgerBlue: CM.badge };
+    const BY_MESH = { brake: CM.disc, brakes: CM.caliper, grills: CM.black, wipers: CM.black, carbon_fibre_trim: CM.carbon, 'carbon fibre': CM.carbon, steering_carbon: CM.carbon };
+    // soft contact shadow + a road that only shows when it drives
+    const shc = document.createElement('canvas'); shc.width = 64; shc.height = 128;
+    const sg = shc.getContext('2d'), grd = sg.createRadialGradient(32, 64, 4, 32, 64, 62);
+    grd.addColorStop(0, 'rgba(0,0,0,.85)'); grd.addColorStop(.55, 'rgba(0,0,0,.45)'); grd.addColorStop(1, 'rgba(0,0,0,0)');
+    sg.fillStyle = grd; sg.fillRect(0, 0, 64, 128);
+    const shadow = new T.Mesh(new T.PlaneGeometry(2.9, 6), new T.MeshBasicMaterial({ map: new T.CanvasTexture(shc), transparent: true, depthWrite: false }));
+    shadow.rotation.x = -Math.PI / 2; shadow.position.y = .012; carRoot.add(shadow);
+    const rc = document.createElement('canvas'); rc.width = 128; rc.height = 256;
+    const rg = rc.getContext('2d'); rg.fillStyle = '#1a1c1f'; rg.fillRect(0, 0, 128, 256);
+    for (let q = 0; q < 900; q++) { rg.fillStyle = `rgba(255,255,255,${(r2() * .05).toFixed(3)})`; rg.fillRect(r2() * 128, r2() * 256, 1.5, 1.5); }
+    rg.fillStyle = '#d9d6cc'; rg.fillRect(62, 0, 4, 90); rg.fillRect(9, 0, 3, 256); rg.fillRect(116, 0, 3, 256);   // dashed centre line, solid edges
+    const roadTex = new T.CanvasTexture(rc); roadTex.encoding = T.sRGBEncoding; roadTex.wrapS = roadTex.wrapT = T.RepeatWrapping; roadTex.repeat.set(1, 14); roadTex.anisotropy = 4;
+    const roadMat = new T.MeshStandardMaterial({ color: lin('#7a7a7a'), map: roadTex, roughness: .85, metalness: 0, transparent: true, opacity: 0, depthWrite: false });
+    roadMat.onBeforeCompile = sh => {
+      sh.vertexShader = sh.vertexShader.replace('#include <common>', '#include <common>\nvarying float vRoad;').replace('#include <begin_vertex>', '#include <begin_vertex>\nvRoad = position.y;');
+      sh.fragmentShader = sh.fragmentShader.replace('#include <common>', '#include <common>\nvarying float vRoad;').replace('#include <color_fragment>', '#include <color_fragment>\ndiffuseColor.a *= 1. - smoothstep(9., 34., abs(vRoad));');
+    };
+    const road = new T.Mesh(new T.PlaneGeometry(7.5, 90), roadMat); road.rotation.x = -Math.PI / 2; road.position.y = .004; road.visible = false; carRoot.add(road);
+    const wheels = []; let carReady = false, warm = 0, roll = 0, carSpeed = 0, carThr = 0, carPresence = 0;
+    const hint = $('#carHint');
+    const WHEEL = { dark: lin('#3a3b3f'), gold: lin('#d4a94f'), silver: lin('#c9cbce') };
+    const setPaint = () => {
+      const P = PAINTS[look.paint] || PAINTS.venom;
+      LV.uRed.value.copy(lin(P.base)); LV.uGradB.value.copy(lin(P.b || P.base)); LV.uBlue.value.copy(lin(P.stripe || P.base));
+      LV.uInk.value.copy(lin(P.line || '#000000')); LV.uLogoCol.value.copy(lin(P.logo || '#ffffff'));
+      LV.uWeb.value = P.web ? 1 : 0; LV.uStripe.value = P.stripeOn ? 1 : 0; LV.uLower.value = P.lower ? 1 : 0; LV.uLogo.value = P.logo ? 1 : 0;
+      LV.uLogoScale.value = P.logoScale || .3; LV.uGrad.value = P.b ? 1 : 0; LV.uMetal.value = P.metal ?? .6; LV.uLineW.value = P.lineW || 1;
+      CM.alloy.color.copy(WHEEL[P.wheel] || WHEEL.silver);
+    };
+    // rear wing, built in the car's own space (nose at -z, ground at y 0, deck at y ~0.97)
+    const makeWing = () => {
+      const g = new T.Group();
+      const af = new T.Shape(); af.moveTo(0, 0); af.bezierCurveTo(0, .05, .14, .06, .42, .012); af.lineTo(.42, -.004); af.bezierCurveTo(.16, -.022, .02, -.028, 0, 0);
+      const bg = new T.ExtrudeGeometry(af, { depth: 1.84, bevelEnabled: false, curveSegments: 18 }); bg.rotateY(-Math.PI / 2); bg.translate(.92, 0, 0);
+      const blade = new T.Mesh(bg, CM.wing); blade.position.set(0, 1.27, 1.76); blade.rotation.x = -.14; g.add(blade);
+      const lip = new T.Mesh(new T.BoxGeometry(1.84, .03, .012), CM.lip); lip.position.set(0, 1.335, 2.172); g.add(lip);
+      const pl = new T.Shape(); pl.moveTo(0, 0); pl.lineTo(.5, 0); pl.lineTo(.5, .2); pl.quadraticCurveTo(.3, .32, 0, .22); pl.lineTo(0, 0);
+      const pg = new T.ExtrudeGeometry(pl, { depth: .025, bevelEnabled: false }); pg.rotateY(-Math.PI / 2);
+      [.955, -.93].forEach(x => { const m = new T.Mesh(pg, CM.wing); m.position.set(x, 1.12, 1.7); g.add(m); });
+      const up = new T.BoxGeometry(.035, .34, .12);
+      [-.42, .42].forEach(x => { const m = new T.Mesh(up, CM.wing); m.position.set(x, 1.1, 1.98); m.rotation.x = .28; g.add(m); });
+      return g;
+    };
+    // airflow: streaks that follow the body's roofline and curl off the tail (moved in the shader)
+    const NW = coarse ? 40 : 76, SEG = 10;
+    const wpos = new Float32Array(NW * SEG * 6), waT = new Float32Array(NW * SEG * 2), waS = new Float32Array(NW * SEG * 8);
+    for (let q = 0; q < NW; q++) {
+      const side = q % 3 === 0;
+      const sd = [side ? (r2() < .5 ? -1 : 1) * (1.08 + r2() * .35) : (r2() * 2 - 1) * .82, side ? .22 + r2() * .5 : .03 + r2() * .28, r2(), .8 + r2() * .6];
+      for (let k2 = 0; k2 < SEG; k2++) for (let e = 0; e < 2; e++) { const v = (q * SEG + k2) * 2 + e; waT[v] = (k2 + e) / SEG; waS.set(sd, v * 4); wpos[v * 3] = side ? 1 : 0; }
+    }
+    const wgeo = new T.BufferGeometry();
+    wgeo.setAttribute('position', new T.BufferAttribute(wpos, 3)); wgeo.setAttribute('aT', new T.BufferAttribute(waT, 1)); wgeo.setAttribute('aSeed', new T.BufferAttribute(waS, 4));
+    const wmat = new T.ShaderMaterial({
+      uniforms: { uTime: { value: 0 }, uWind: { value: 0 }, uCol: { value: new T.Color(0xffffff) } }, transparent: true, depthWrite: false,
+      vertexShader: `attribute float aT; attribute vec4 aSeed; uniform float uTime; varying float vA;
+        float prof(float z) {
+          float h = .56 + .3 * smoothstep(-2.3, -1.4, z) + .38 * exp(-pow((z + .25) / .45, 2.)) + .22 * exp(-pow((z - .7) / .4, 2.)) + .1 * smoothstep(0., 1., z);
+          h += .36 * exp(-pow((z - 1.98) / .3, 2.)) * step(abs(aSeed.x), .95);   // up and over the wing
+          h -= .35 * smoothstep(2.3, 4.2, z); h -= .3 * (1. - smoothstep(-3.4, -2.3, z));
+          return h;
+        }
+        void main() {
+          float side = position.x, len = .8 + aSeed.w * 1.3;
+          float head = fract(aSeed.z + uTime * aSeed.w * .22) * 9.4 - 3.4;
+          float z = head - aT * len;
+          float y = side > .5 ? aSeed.y + .05 * sin(z * 1.3 + aSeed.z * 6.) : prof(z) + aSeed.y;
+          float x = aSeed.x * (side > .5 ? 1. : 1. - .25 * (1. - smoothstep(-2.4, -1.4, z)));
+          float tb = smoothstep(2.2, 4.6, z);
+          x += sin(z * 3. + aSeed.z * 20. + uTime * 4.) * .08 * tb; y += cos(z * 2.5 + aSeed.z * 13. + uTime * 3.) * .07 * tb;
+          vA = sin(aT * 3.14159) * smoothstep(-3.4, -2.6, head - len) * (1. - smoothstep(4.4, 5.8, z));
+          gl_Position = projectionMatrix * modelViewMatrix * vec4(x, y, z, 1.);
+        }`,
+      fragmentShader: 'uniform vec3 uCol; uniform float uWind; varying float vA;\nvoid main() { gl_FragColor = vec4(uCol, vA * uWind * .6); }'
+    });
+    const wind = new T.LineSegments(wgeo, wmat); wind.frustumCulled = false; wind.visible = false;
+    let windT = 0, flash = 0, lastId = '';
+    const flameMat = new T.ShaderMaterial({
+      uniforms: { uI: { value: 0 }, uT: { value: 0 } }, transparent: true, depthWrite: false, blending: T.AdditiveBlending, side: T.DoubleSide,
+      vertexShader: 'varying float vT; varying vec2 vXY;\nvoid main() { vT = clamp(position.z / .7, 0., 1.); vXY = position.xy; gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.); }',
+      fragmentShader: `uniform float uI; uniform float uT; varying float vT; varying vec2 vXY;
+        float h(float n) { return fract(sin(n) * 43758.5453); }
+        void main() {
+          float fl = .75 + .25 * sin(uT * 61. + vT * 9.) * sin(uT * 37. + vXY.x * 30.);
+          vec3 core = vec3(.45, .65, 1.) * 1.5, mid = vec3(1., .5, .12) * 1.5, tip = vec3(.9, .18, .03);
+          vec3 c = mix(core, mid, smoothstep(.02, .35, vT)); c = mix(c, tip, smoothstep(.4, .95, vT));
+          float a = pow(1. - vT, 1.4) * uI * fl;
+          gl_FragColor = vec4(c * a, a);
+        }`
+    });
+    const flameGeo = new T.ConeGeometry(.095, .7, 18, 6, true); flameGeo.translate(0, .35, 0); flameGeo.rotateX(Math.PI / 2);
+    const flames = new T.Group(); flames.visible = false;
+    [-.13, 0, .13].forEach(x => { const m = new T.Mesh(flameGeo, flameMat); m.position.set(x, .36, 2.22); m.renderOrder = 5; flames.add(m); });
+    // timeline mirrors the engine recording: upshifts at 6.5, 9.5 and 13.4 s, then every pull of the 9.5–18.5 s loop
+    const SHIFTS = [6.5, 9.5, 13.36];
+    let fDriving = false, fT = 0, fBurst = 0, fLastLoop = -1, fEvents = [], fRevAt = 0;
+    const flameAt = d => fEvents.push(d);
+    listeners.push(setPaint); setPaint();
+    const loadCar = () => {
+      if (!T.GLTFLoader || look.q === 'off') { hint.textContent = 'Mobil 3D tidak tersedia di perangkat ini.'; return; }
+      fetch('car.json').then(r => { if (!r.ok) throw new Error(r.status); return r.json(); }).then(j => {
+        let buf;
+        if (Uint8Array.fromBase64) buf = Uint8Array.fromBase64(j.data);
+        else { const bin = atob(j.data); buf = new Uint8Array(bin.length); for (let q = 0; q < bin.length; q++) buf[q] = bin.charCodeAt(q); }
+        new T.GLTFLoader().parse(buf.buffer, '', g => {
+          const car = g.scene;
+          car.updateMatrixWorld(true);
+          car.traverse(o => { if (!o.isMesh) return; const m = BY_MESH[o.name] || BY_MAT[o.material && o.material.name]; if (m) o.material = m;
+            if (m === body) { LV.uBodyToCar.value.copy(o.matrixWorld); LV.uBodyToCarN.value.getNormalMatrix(o.matrixWorld); } });
+          car.add(makeWing(), wind, flames);
+          ['wheel_fl', 'wheel_fr', 'wheel_rl', 'wheel_rr'].forEach(nm => { const w = car.getObjectByName(nm); if (w) wheels.push(w); });
+          car.rotation.y = Math.PI; carModel.add(car);
+          carReady = true; warm = 3;   // draw it a few frames tiny so the GPU upload happens now, not on arrival
+          hint.textContent = fine ? 'Gulir untuk memutar 360°, atau tarik mobilnya.' : 'Gulir untuk memutar 360°, atau geser mobilnya.';
+        }, e => { hint.textContent = 'Mobil 3D gagal dibaca.'; console.warn(e); });
+      }).catch(e => { hint.textContent = 'Mobil 3D gagal dimuat.'; console.warn('car', e); });
+    };
+    const idle = f => window.requestIdleCallback ? requestIdleCallback(f, { timeout: 1200 }) : setTimeout(f, 300);
+    if (document.readyState === 'complete') idle(loadCar); else addEventListener('load', () => idle(loadCar));
+    const ST = {
+      profil:     { pad: OFF, phones: OFF, moon: [1.8, .4, -4, 0], code: [1.8, -.4, -3, 0], coin: [1.8, -.6, -3, 0], field: 1 },
+      perkenalan: { pad: OFF, phones: OFF, moon: [1.8, .4, -4, 0], code: [1.8, -.4, -3, 0], coin: [1.8, -.6, -3, 0], field: 1 },
+      suka:       { pad: OFF, phones: OFF, moon: [1.8, .4, -4, 0], code: [1.8, -.4, -3, 0], coin: [1.8, -.6, -3, 0] , field: 1 },   // from here until MONEY the page stays clear; objects only appear when tapped
+      keahlian:   { pad: OFF, phones: OFF, moon: [1.8, .4, -4, 0], code: [1.8, -.4, -3, 0], coin: [1.8, -.6, -3, 0] , field: 1 },
+      awal:       { pad: OFF, phones: OFF, moon: [1.8, .4, -4, 0], code: [1.8, -.4, -3, 0], coin: [1.8, -.6, -3, 0] , field: 1 },
+      money:      { coin: [0, .08, -4.5, 2.7], pad: OFF, phones: OFF, code: [1.8, -.6, -3, 0], moon: [1.8, .6, -6, 0], orbit: 1, warp: .08 },
+      garasi:     { moon: [.86, .8, -9, .6], pad: OFF, phones: OFF, code: [1.8, -.6, -3, 0], coin: [-1.8, 0, -3, 0], rain: .12, car: [0, -.36, .3, 1.18, -.35, .1] },
+      tujuan:     { moon: [-.72, .72, -7, .9], pad: OFF, phones: OFF, code: [1.8, -.6, -3, 0], coin: [-1.8, 0, -3, 0], planes: 1, road: 1, warp: .55, car: [0, -.7, -.2, .95, 2.62, -.5] },
+      prinsip:    { moon: [.86, .78, -7, .65], pad: OFF, phones: OFF, code: [1.8, -.6, -3, 0], coin: [-1.8, 0, -3, 0], stack: 1 },   // the car is long gone by now
+      akhir:      { moon: [1.8, .6, -6, 0], pad: OFF, phones: OFF, code: [1.8, -.6, -3, 0], coin: [-1.8, 0, -3, 0], space: [0, .16, -6, 1.6], warp: -.02 }
+    };
+    const order = secs.map(s => ST[s.id] || ST.akhir);
+    const names = Object.keys(objs);
+    const SPIN = { pad: [.25, .5, .35], phones: [.2, .3, .2], moon: [0, .06, .02], code: [.15, .55, .3], coin: [0, 1.1, .1] };
+
+    const accentCol = () => { M.accent.color.copy(lin(getComputedStyle(root).getPropertyValue('--accent').trim() || '#f2b84b')); };
+    listeners.push(accentCol); accentCol();
+    const dustCol = () => { dmat.uniforms.uCol.value.set(getComputedStyle(root).getPropertyValue('--fg').trim() || '#ebe7dd'); };
+    listeners.push(dustCol); dustCol();
+    const CAROFF = [0, -.3, -40, 0, 0];
+    // phones (portrait): the same objects, smaller and placed whole inside the screen
+    const MOB = {
+      prinsip:    { moon: [.6, .86, -6, .5] }
+    };
+
+    /* --- the ending: a detailed Earth with clouds, city lights and atmosphere, the Moon, and planets around it --- */
+    const SUN = new T.Vector3(1, .3, .45).normalize();
+    const space = new T.Group(); space.visible = false; scene3.add(space);
+    const VS = 'varying vec2 vUv; varying vec3 vN; varying vec3 vP;\nvoid main() { vUv = uv; vN = normalize(mat3(modelMatrix) * normal); vec4 wp = modelMatrix * vec4(position, 1.); vP = wp.xyz; gl_Position = projectionMatrix * viewMatrix * wp; }';
+    const blank = new T.DataTexture(new Uint8Array([0, 0, 0, 255]), 1, 1);
+    const EU = { dayMap: { value: blank }, nightMap: { value: blank }, bumpMap: { value: blank }, waterMap: { value: blank }, cloudMap: { value: blank },
+      uSun: { value: SUN }, uAxis: { value: new T.Vector3(0, 1, 0) }, uCloud: { value: 0 }, uTexel: { value: new T.Vector2(1 / 2048, 1 / 1024) } };
+    const earthMat = new T.ShaderMaterial({ uniforms: EU, vertexShader: VS, fragmentShader: `
+      uniform sampler2D dayMap; uniform sampler2D nightMap; uniform sampler2D bumpMap; uniform sampler2D waterMap; uniform sampler2D cloudMap;
+      uniform vec3 uSun; uniform vec3 uAxis; uniform float uCloud; uniform vec2 uTexel;
+      varying vec2 vUv; varying vec3 vN; varying vec3 vP;
+      void main() {
+        vec3 n = normalize(vN);
+        float h = texture2D(bumpMap, vUv).r, hx = texture2D(bumpMap, vUv + vec2(uTexel.x, 0.)).r, hy = texture2D(bumpMap, vUv + vec2(0., uTexel.y)).r;
+        vec3 E = normalize(cross(uAxis, n) + 1e-5), Nn = cross(n, E);
+        vec3 nb = normalize(n - (E * (hx - h) + Nn * (hy - h)) * 4.);
+        float dg = dot(n, uSun), l = smoothstep(-.1, .45, dot(nb, uSun));
+        vec3 day = pow(texture2D(dayMap, vUv).rgb, vec3(2.2));
+        vec3 night = pow(texture2D(nightMap, vUv).rgb, vec3(2.2));
+        float water = texture2D(waterMap, vUv).r;
+        float cl = texture2D(cloudMap, vUv + vec2(uCloud - .004, .002)).r;
+        vec3 V = normalize(cameraPosition - vP), H = normalize(uSun + V);
+        float sp = pow(max(dot(n, H), 0.), 60.) * water * smoothstep(-.05, .3, dg);
+        vec3 col = day * (l * 1.3 + .01) * (1. - cl * .5 * l);
+        col += night * vec3(1., .76, .46) * 2.4 * smoothstep(.1, -.22, dg) * (1. - cl * .75);
+        col += vec3(1., .92, .78) * sp * 1.3 * (1. - cl);
+        float fr = pow(1. - max(dot(n, V), 0.), 2.4);
+        col = mix(col, vec3(.3, .55, 1.) * (smoothstep(-.3, .6, dg) * .95 + .02), fr * .45);
+        gl_FragColor = vec4(pow(col, vec3(1. / 2.2)), 1.);
+      }` });
+    const cloudMat = new T.ShaderMaterial({ uniforms: EU, vertexShader: VS, transparent: true, depthWrite: false, fragmentShader: `
+      uniform sampler2D cloudMap; uniform vec3 uSun; uniform float uCloud; varying vec2 vUv; varying vec3 vN; varying vec3 vP;
+      void main() { vec3 n = normalize(vN); float d = dot(n, uSun); float a = texture2D(cloudMap, vUv + vec2(uCloud, 0.)).r;
+        vec3 col = vec3(1.) * (smoothstep(-.15, .4, d) * 1.05 + .012);
+        gl_FragColor = vec4(pow(col, vec3(1. / 2.2)), a * (.2 + .8 * smoothstep(-.3, .15, d))); }` });
+    const atmoMat = new T.ShaderMaterial({ uniforms: { uSun: EU.uSun }, side: T.BackSide, transparent: true, depthWrite: false,
+      blending: T.CustomBlending, blendSrc: T.OneFactor, blendDst: T.OneFactor, blendSrcAlpha: T.ZeroFactor, blendDstAlpha: T.OneFactor,   // add light without making the canvas opaque
+      vertexShader: 'varying vec3 vNv; varying vec3 vN;\nvoid main() { vNv = normalize(normalMatrix * normal); vN = normalize(mat3(modelMatrix) * normal); gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.); }',
+      fragmentShader: 'uniform vec3 uSun; varying vec3 vNv; varying vec3 vN;\nvoid main() { float i = pow(clamp(-vNv.z / .5, 0., 1.), 2.6) * 1.1; float lit = smoothstep(-.45, .55, dot(-vN, uSun)) + .06; gl_FragColor = vec4(vec3(.32, .58, 1.) * i * lit, 1.); }' });
+    const planetMat = (map, rim) => new T.ShaderMaterial({ uniforms: { map: { value: map }, uSun: EU.uSun, uRim: { value: new T.Color(rim) } }, vertexShader: VS, fragmentShader: `
+      uniform sampler2D map; uniform vec3 uSun; uniform vec3 uRim; varying vec2 vUv; varying vec3 vN; varying vec3 vP;
+      void main() { vec3 n = normalize(vN); vec3 c = pow(texture2D(map, vUv).rgb, vec3(2.2)); float d = dot(n, uSun);
+        float l = smoothstep(-.06, .55, d); vec3 V = normalize(cameraPosition - vP); float fr = pow(1. - max(dot(n, V), 0.), 3.);
+        vec3 col = c * (l * 1.2 + .015) + uRim * fr * (l * .7 + .03);
+        gl_FragColor = vec4(pow(col, vec3(1. / 2.2)), 1.); }` });
+    const tilt = new T.Group(); tilt.rotation.z = -23.4 * Math.PI / 180; space.add(tilt);
+    const earth = new T.Mesh(new T.SphereGeometry(1, coarse ? 96 : 160, coarse ? 64 : 100), earthMat); tilt.add(earth);
+    const clouds = new T.Mesh(new T.SphereGeometry(1.012, coarse ? 72 : 120, coarse ? 48 : 72), cloudMat); tilt.add(clouds);
+    const atmo = new T.Mesh(new T.SphereGeometry(1.15, 72, 48), atmoMat); space.add(atmo);
+    EU.uAxis.value.set(0, 1, 0).applyAxisAngle(new T.Vector3(0, 0, 1), tilt.rotation.z);
+    const orbitPlane = new T.Group(); orbitPlane.rotation.set(.3, 0, -.06); space.add(orbitPlane);
+    const BODIES = [
+      { f: 'moon.jpg', r: .27, o: 2.3, sp: .22, ph: 1.2, rim: '#9aa4b0', moon: true },
+      { f: 'venus.jpg', r: .4, o: 3.9, sp: .07, ph: 2.6, rim: '#ffd9a0' },
+      { f: 'mars.jpg', r: .3, o: 5.4, sp: .055, ph: 4.4, rim: '#ff9a70' },
+      { f: 'jupiter.jpg', r: .95, o: 7.4, sp: .035, ph: .3, rim: '#ffd8b0' },
+      { f: 'saturn.jpg', r: .78, o: 9.8, sp: .026, ph: 3.5, rim: '#ffe6b0', ring: true },
+      { f: 'neptune.jpg', r: .5, o: 12.2, sp: .018, ph: 5.4, rim: '#7fb0ff' }
+    ];
+    const bodyMats = [], ringMat = new T.ShaderMaterial({ uniforms: { map: { value: blank }, uSun: EU.uSun }, side: T.DoubleSide, transparent: true, depthWrite: false,
+      vertexShader: 'varying vec2 vUv;\nvoid main() { vUv = uv; gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.); }',
+      fragmentShader: 'uniform sampler2D map; varying vec2 vUv;\nvoid main() { vec4 t = texture2D(map, vec2(vUv.x, .5)); gl_FragColor = vec4(t.rgb * .95, t.a * .9); }' });
+    // wide orbits, flattened in depth so nothing ever swings into the camera (max ~1.8 units toward the viewer)
+    BODIES.forEach(b => { b.zs = Math.min(.5, 1.8 / b.o); });
+    BODIES.forEach(b => {
+      const m = new T.Mesh(new T.SphereGeometry(b.r, 56, 36), planetMat(blank, b.rim)); bodyMats.push(m.material);
+      if (b.ring) {
+        const rg = new T.RingGeometry(b.r * 1.3, b.r * 2.35, 128, 1), pos = rg.attributes.position, uvA = rg.attributes.uv;
+        for (let q = 0; q < pos.count; q++) { const rr = Math.hypot(pos.getX(q), pos.getY(q)); uvA.setXY(q, (rr - b.r * 1.3) / (b.r * 1.05), .5); }
+        const ring = new T.Mesh(rg, ringMat); ring.rotation.x = -Math.PI / 2 + .42; m.add(ring);
+      }
+      b.m = m; orbitPlane.add(m);
+      if (!b.moon || true) {
+        const pts = []; for (let q = 0; q <= 160; q++) { const a = q / 160 * Math.PI * 2; pts.push(new T.Vector3(Math.cos(a) * b.o, 0, Math.sin(a) * b.o * b.zs)); }
+        const ol = new T.Line(new T.BufferGeometry().setFromPoints(pts), new T.LineBasicMaterial({ color: 0xffffff, transparent: true, opacity: .09, depthWrite: false }));
+        orbitPlane.add(ol);
+      }
+    });
+    // stars behind it all
+    const NS = coarse ? 900 : 2000, spos = new Float32Array(NS * 3), sS = new Float32Array(NS);
+    for (let q = 0; q < NS; q++) { spos.set([(r2() * 2 - 1) * 70, (r2() * 2 - 1) * 42, -30 - r2() * 40], q * 3); sS[q] = r2(); }
+    const sgeo = new T.BufferGeometry(); sgeo.setAttribute('position', new T.BufferAttribute(spos, 3)); sgeo.setAttribute('aS', new T.BufferAttribute(sS, 1));
+    const starMat = new T.ShaderMaterial({ uniforms: { uT: { value: 0 }, uA: { value: 0 }, uPR: { value: 1 }, uCol: { value: new T.Color() } }, transparent: true, depthWrite: false,
+      vertexShader: 'attribute float aS; uniform float uT; uniform float uPR; varying float vB;\nvoid main() { gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.); vB = .45 + .55 * sin(uT * (1. + aS * 2.) + aS * 50.); gl_PointSize = (1. + aS * aS * 2.6) * uPR; }',
+      fragmentShader: 'uniform float uA; uniform vec3 uCol; varying float vB;\nvoid main() { float d = length(gl_PointCoord - .5); gl_FragColor = vec4(uCol, smoothstep(.5, .05, d) * vB * uA); }' });
+    const stars = new T.Points(sgeo, starMat); stars.frustumCulled = false; stars.visible = false; scene3.add(stars);
+    listeners.push(() => starMat.uniforms.uCol.value.set(getComputedStyle(root).getPropertyValue('--fg').trim() || '#ebe7dd'));
+    let spaceLoading = false, spaceReady = false;
+    const SPACEOFF = [0, .3, -40, 0];
+    const loadSpace = () => {
+      spaceLoading = true;
+      const mgr = new T.LoadingManager(() => { spaceReady = true; });
+      const tl = new T.TextureLoader(mgr), ld = f => { const t = tl.load('space/' + f); t.anisotropy = Math.min(8, R.capabilities.getMaxAnisotropy()); return t; };
+      EU.dayMap.value = ld(coarse || R.capabilities.maxTextureSize < 4096 ? 'earth-day-2k.jpg' : 'earth-day-4k.jpg');
+      EU.nightMap.value = ld('earth-night.jpg'); EU.bumpMap.value = ld('earth-bump.jpg'); EU.waterMap.value = ld('earth-water.jpg');
+      const cm = ld('earth-clouds.jpg'); cm.wrapS = T.RepeatWrapping; EU.cloudMap.value = cm;
+      BODIES.forEach((b, q) => { bodyMats[q].uniforms.map.value = ld(b.f); });
+      ringMat.uniforms.map.value = ld('saturn-ring.png');
+    };
+    const isSt = (st, id) => st === ST[id];
+    // small life for every object: buttons press, music pulses, brackets breathe, a satellite orbits, the coin flips with the scroll
+    const micro = (nm, o, A, B, sc) => {
+      if (!o.visible) return;
+      const u = o.userData;
+      if (nm === 'pad') {
+        u.btns.forEach((b, q) => { const pr = Math.pow(Math.max(0, Math.sin(time * 2.6 + q * 1.7)), 14); b.position.z = .31 - pr * .07; });
+        u.sticks.forEach((m, q) => { m.rotation.z = Math.sin(time * 1.9 + q * 2) * .35; m.rotation.y = Math.cos(time * 1.4 + q) * .3; });
+      } else if (nm === 'phones') {
+        const beat = Math.pow(Math.max(0, Math.sin(time * Math.PI * 2.2)), 10);
+        o.scale.multiplyScalar(1 + beat * .07);
+        u.waves.forEach(m => { const f = (time * .8 + m.userData.ph) % 1; m.scale.setScalar(1 + f * 1.6); m.position.x = m.userData.sx * (1.12 + f * .5); m.material.opacity = (1 - f) * .75; });
+      } else if (nm === 'code') {
+        const br = (Math.sin(time * 1.7) * .5 + .5) * .2;
+        u.parts[0].position.x = -1.05 - br; u.parts[1].position.x = 1.05 + br; u.parts[2].rotation.z = Math.sin(time * .9) * .3;
+      } else if (nm === 'moon') {
+        const a = time * .9; u.sat.position.set(Math.cos(a) * 1.55, Math.sin(a * .7) * .35, Math.sin(a) * 1.55);
+      } else if (nm === 'coin') {
+        const w = (isSt(A, 'money') ? 1 - sc.b : 0) + (isSt(B, 'money') ? sc.b : 0);
+        if (w > .001) {
+          const pm = sc.p.money || 0;
+          o.rotation.y = mixA(o.rotation.y, time * .35 + pm * Math.PI * 3, w);
+          o.rotation.x = mixA(o.rotation.x, Math.sin(time * .6) * .28, w);
+          o.rotation.z = mixA(o.rotation.z, Math.sin(time * .45) * .08, w);
+        }
+      }
+    };
+    const angTo = (c, t) => c + Math.atan2(Math.sin(t - c), Math.cos(t - c));
+
+    let W = 0, H = 0, cap = 1.5, pr = 1, ema = 16, n = 0, last = performance.now(), time = 0;
+    const size = () => {
+      const w = innerWidth, h = Math.max(innerHeight, document.documentElement.clientHeight);
+      cap = look.q === 'eco' ? 1 : Math.min(devicePixelRatio || 1, coarse ? 1.5 : 1.75);
+      pr = Math.min(pr, cap) || 1;
+      if (w === W && Math.abs(h - H) < 140) { R.setPixelRatio(pr); return; }
+      W = w; H = h;
+      R.setPixelRatio(pr); R.setSize(W, H, false);
+      cam.aspect = W / H; cam.updateProjectionMatrix();
+    };
+    pr = Math.min(devicePixelRatio || 1, 1.25);
+    size(); addEventListener('resize', size); listeners.push(size);
+
+    const v3 = new T.Vector3(), dummy = new T.Object3D();
+    const mixA = (a, b, t) => a + (b - a) * t;
+    /* --- pop-out layer: a second canvas above the page; the tapped thing flies out of its card, past the viewer --- */
+    let pop = () => {};
+    {
+      const pc = $('#pop');
+      let PR = null;
+      try { PR = new T.WebGLRenderer({ canvas: pc, antialias: !coarse, alpha: true }); } catch (e) { PR = null; }
+      if (PR) {
+        PR.setClearColor(0, 0); PR.outputEncoding = T.sRGBEncoding; PR.toneMapping = T.ACESFilmicToneMapping; PR.toneMappingExposure = 1.05;
+        const ps3 = new T.Scene(), pm2 = new T.PMREMGenerator(PR);
+        ps3.environment = pm2.fromScene(env, .03).texture; pm2.dispose();
+        const k2 = new T.DirectionalLight(0xfff0dc, 2.6); k2.position.set(4, 6, 6); ps3.add(k2, new T.HemisphereLight(0xbcd2ff, 0x1a140e, .45));
+        const pcam = new T.PerspectiveCamera(35, 1, .1, 60); pcam.position.set(0, 0, 10);
+        const BASE = { pad: .62, phones: .8, code: .75, moon: .85, coin: 1, zzz: 1, ask: 1 };
+        const copyOf = nm => { const o = objs[nm], ud = o.userData; o.userData = {}; const c = o.clone(); o.userData = ud; return c; };
+        // 💤: three extruded Z's
+        const zzz = new T.Group();
+        {
+          const z = new T.Shape([[0, 0], [1, 0], [1, .2], [.32, .8], [1, .8], [1, 1], [0, 1], [0, .8], [.68, .2], [0, .2]].map(([x, y]) => new T.Vector2(x - .5, y - .5)));
+          const zg = new T.ExtrudeGeometry(z, { depth: .22, bevelEnabled: true, bevelThickness: .05, bevelSize: .04, bevelSegments: 3 }); zg.center();
+          [[.62, -.55, -.35], [.44, .1, .2], [.3, .55, .62]].forEach(([sc, x, y]) => { const m = new T.Mesh(zg, M.accent); m.scale.setScalar(sc); m.position.set(x, y, 0); m.rotation.z = -.12; zzz.add(m); });
+        }
+        // ?: a hook, a stem and a dot
+        const ask = new T.Group();
+        {
+          const hook = new T.Mesh(new T.TorusGeometry(.34, .1, 18, 48, Math.PI * 1.5), M.accent); hook.rotation.z = -Math.PI / 2; hook.position.y = .36; ask.add(hook);
+          const stem = new T.Mesh(new T.CylinderGeometry(.1, .1, .24, 24), M.accent); stem.position.set(0, -.1, 0); ask.add(stem);
+          const dot = new T.Mesh(new T.SphereGeometry(.12, 24, 16), M.accent); dot.position.set(0, -.5, 0); ask.add(dot);
+          ask.position.y = .05;
+        }
+        // 📖: a plain book; pages carry only unreadable squiggles
+        const book = new T.Group(), BW = 1.35, BH = 1.85;
+        {
+          const pc2 = document.createElement('canvas'); pc2.width = 256; pc2.height = 352; const h = pc2.getContext('2d');
+          h.fillStyle = '#f3ecdc'; h.fillRect(0, 0, 256, 352); h.strokeStyle = '#a69c87'; h.lineWidth = 2.2; h.lineCap = 'round';
+          for (let y = 44; y < 318; y += 15) {
+            const end = 220 - ((y * 53) % 60) * (y % 90 < 15 ? 1.6 : .4);
+            h.beginPath(); h.moveTo(28, y);
+            for (let x = 28; x < end; x += 4) h.lineTo(x, y + Math.sin(x * .32 + y) * 2.4 + Math.sin(x * .11) * 1.2);
+            h.stroke();
+          }
+          const pageTex = new T.CanvasTexture(pc2); pageTex.encoding = T.sRGBEncoding;
+          const cover = std('#2b1d15', .6, .08), pageM = new T.MeshStandardMaterial({ map: pageTex, roughness: .85, side: T.DoubleSide }), edgeM = std('#e9e0cb', .9, 0);
+          const half = sx => {
+            const pv = new T.Group();
+            const cov = new T.Mesh(new T.BoxGeometry(BW + .06, BH + .08, .04), cover); cov.position.set(sx * (BW / 2 + .02), 0, -.07); pv.add(cov);
+            const blk = new T.Mesh(new T.BoxGeometry(BW, BH, .09), [edgeM, edgeM, edgeM, edgeM, pageM, edgeM]); blk.position.set(sx * BW / 2, 0, -.005); pv.add(blk);
+            return pv;
+          };
+          const right = half(1), left = half(-1); left.position.z = .1; book.add(right, left); book.userData.left = left;
+          const spine = new T.Mesh(new T.CylinderGeometry(.06, .06, BH + .08, 12, 1, false, 0, Math.PI), cover); spine.rotation.z = 0; spine.rotation.y = Math.PI / 2; spine.position.z = -.08; book.add(spine);
+          const pages = [];
+          for (let q = 0; q < 7; q++) {
+            const pg = new T.PlaneGeometry(BW, BH); pg.translate(BW / 2, 0, 0);
+            const piv = new T.Group(); piv.position.z = .045 + q * .002; piv.add(new T.Mesh(pg, pageM)); book.add(piv); pages.push(piv);
+          }
+          book.userData.pages = pages; book.rotation.x = -.38;
+        }
+        let act = null, sizeKey = '';
+        const resizePop = () => {
+          const k = innerWidth + 'x' + innerHeight + '@' + pr;
+          if (k === sizeKey) return; sizeKey = k;
+          PR.setPixelRatio(pr); PR.setSize(innerWidth, Math.max(innerHeight, document.documentElement.clientHeight), false);
+          pcam.aspect = innerWidth / Math.max(1, innerHeight); pcam.updateProjectionMatrix();
+        };
+        const ez = t => 1 - Math.pow(1 - t, 3), sm = t => t * t * (3 - 2 * t);
+        // behind the page (z < 0) the object lives in the main scene; in front of it, on the pop-out canvas
+        const place = o => { const want = o.position.z > .2 ? ps3 : scene3; if (o.parent !== want) want.add(o); };
+        const drop = o => { if (o.parent) o.parent.remove(o); };
+        const box3 = new T.Box3(), vsz = new T.Vector3();
+        const widthOf = o => { const sc0 = o.scale.x, r0 = o.rotation.clone(); o.scale.setScalar(1); o.rotation.set(0, 0, 0); o.updateMatrixWorld(true); box3.setFromObject(o); box3.getSize(vsz); o.scale.setScalar(sc0); o.rotation.copy(r0); return Math.max(.2, vsz.x); };
+        const sizeOf = o => { const sc0 = o.scale.x, r0 = o.rotation.clone(); o.scale.setScalar(1); o.rotation.set(0, 0, 0); o.updateMatrixWorld(true); box3.setFromObject(o); box3.getSize(vsz); o.scale.setScalar(sc0); o.rotation.copy(r0); return [Math.max(.2, vsz.x, vsz.z), Math.max(.2, vsz.y)]; };
+        showcase = (nm, el) => {
+          if (look.q === 'off') return;
+          if (act) drop(act.obj);
+          resizePop();
+          const isBook = nm === 'book', obj = isBook ? book : nm === 'zzz' ? zzz : nm === 'ask' ? ask : copyOf(nm);
+          if (isBook) { book.userData.left.rotation.y = 0; book.userData.pages.forEach(pg => { pg.rotation.y = 0; }); }
+          const [nw, nh] = sizeOf(obj);
+          if (isBook) book.userData.left.rotation.y = Math.PI - .04;
+          // small: about 60% of the card's height, and narrow enough to pass beside the card without touching it
+          const r = el.getBoundingClientRect(), hh0 = Math.tan(17.5 * Math.PI / 180) * 10, pxPerUnit = innerHeight / (2 * hh0);
+          // free room on each side: up to the screen edge, or to the neighbouring card in the same row
+          let L = r.left, Rr = innerWidth - r.right;
+          document.querySelectorAll('.like').forEach(c => { if (c === el) return; const q = c.getBoundingClientRect(); if (Math.abs(q.top - r.top) > 8) return; if (q.left >= r.right) Rr = Math.min(Rr, q.left - r.right); else if (q.right <= r.left) L = Math.min(L, r.left - q.right); });
+          const wMax = Math.max(44, Math.min(L, Rr) - 22);
+          const sc = Math.min(r.height * .6 / nh, wMax / nw) / pxPerUnit;
+          act = { nm, obj, el, t: 0, isBook, sc, wpx: nw * sc * pxPerUnit };
+          obj.visible = true; obj.scale.setScalar(.0001); obj.position.set(0, 0, -3); scene3.add(obj); pc.style.display = 'block';
+        };
+        pop = (dt, tm) => {
+          if (!act) return;
+          const a = act, o = a.obj;
+          const hh0 = Math.tan(17.5 * Math.PI / 180) * 10, asp = innerWidth / innerHeight;
+          a.t += dt;
+          // one loop around its own card: out of the card's back on the right, across its front to the left, back in behind it
+          const D = a.isBook ? 6 : 4, t = Math.min(1, a.t / D), th = sm(t) * Math.PI * 2;
+          const r = a.el.getBoundingClientRect(), cx = r.left + r.width / 2, cy = r.top + r.height / 2;
+          const Rx = r.width / 2 + a.wpx / 2 + 10, Rz = 2.2;   // crosses the page plane clear of the card's edges
+          const px = cx + Rx * Math.sin(th), z = -Rz * Math.cos(th), k = (10 - z) / 10;
+          o.position.set((px / innerWidth * 2 - 1) * hh0 * asp * k, -(cy / innerHeight * 2 - 1) * hh0 * k, z);
+          const grow = Math.min(1, t / .08), fade = t > .92 ? 1 - (t - .92) / .08 : 1;
+          o.scale.setScalar(a.sc * grow * fade + .0001);
+          if (!a.isBook) {
+            o.rotation.set(Math.sin(a.t * 1.6) * .18 + (a.nm === 'pad' ? .3 : 0), Math.sin(th) * .55, Math.sin(a.t * 1.2) * .08);   // a calm turn, facing the way it travels
+          } else {
+            // the book opens while it is in front, leafs through, and shuts before going back behind the card
+            const front = clamp((th - Math.PI * .55) / (Math.PI * .9)), open = Math.sin(front * Math.PI);
+            book.userData.left.rotation.y = (Math.PI - .04) * (1 - smooth(clamp(open * 1.6)));
+            book.userData.pages.forEach((pg, q) => { pg.rotation.y = -smooth(clamp((front - .2 - q * .06) / .12)) * Math.PI * (1 - .002 * q) * (open > .3 ? 1 : 0); pg.visible = open > .3; });
+            o.rotation.set(-.3, -th * .25 + Math.sin(tm * .6) * .1, Math.sin(tm * .45) * .04);
+          }
+          if (a.t >= D) { drop(o); act = null; }
+          if (act) place(o);
+          resizePop();
+          PR.render(ps3, pcam);
+          if (!act) { PR.clear(); pc.style.display = 'none'; }
+        };
+        pc.style.display = 'none';
+      }
+    }
+
+    return (now, sc, ptr, hl) => {
+      if (look.q === 'off') return;
+      const dt = Math.min(.05, (now - last) / 1000); last = now;
+      const calm = look.motion === 'calm';
+      time += dt * (calm ? .15 : 1);
+      const k = 1 - Math.exp(-dt * 5.5);
+      const aspect = W / H, mob = aspect < .9;
+      const hh = Math.tan(17.5 * Math.PI / 180) * 10, hw = hh * aspect;
+      const A = order[sc.i], B = order[sc.j];
+      const MA = MOB[secs[sc.i].id] || {}, MB = MOB[secs[sc.j].id] || {};
+
+      for (const nm of names) {
+        const o = objs[nm], side = mob && nm !== 'coin', a = side ? MA[nm] || OFF : A[nm] || OFF, b = side ? MB[nm] || OFF : B[nm] || OFF;
+        let nx = mixA(a[0], b[0], sc.b), ny = mixA(a[1], b[1], sc.b), z = mixA(a[2], b[2], sc.b), s = mixA(a[3], b[3], sc.b);
+        if (nm === 'coin') {
+          const up = smooth(clamp(((sc.p.money || 0) - .3) / .3));
+          const w = (isSt(A, 'money') ? 1 - sc.b : 0) + (isSt(B, 'money') ? sc.b : 0);
+          z += w * up * 3.1; ny -= w * up * .12;
+        }
+        if (mob && !side) { if (Math.abs(nx) > .05) { nx = Math.sign(nx) * Math.min(Math.abs(nx), .62); s *= .5; } else s *= .6; }
+        const dz = (10 - z) / 10;
+        const tx = nx * hw * dz, ty = (ny + (sc.t - .5) * -.08) * hh * dz + Math.sin(time * .7 + nx * 5) * .07;
+        if (hl === nm) s *= 1.3;
+        z += Math.sin(sc.b * Math.PI) * 3.4;   // swoop toward the camera between chapters
+        const c = o.userData.cur || (o.userData.cur = { x: tx, y: ty, z, s });
+        c.x += (tx - c.x) * k; c.y += (ty - c.y) * k; c.z += (z - c.z) * k; c.s += (s - c.s) * k;
+        o.position.set(c.x, c.y, c.z); o.scale.setScalar(Math.max(.0001, c.s) * (nm === 'pad' ? .62 : nm === 'phones' ? .8 : nm === 'code' ? .75 : nm === 'moon' ? .85 : 1));
+        o.visible = c.s > .01;
+        const sp = SPIN[nm], boost = hl === nm ? 3 : 1;
+        o.rotation.x = Math.sin(time * sp[0] + 1) * .35 + (nm === 'pad' ? .35 : 0);
+        o.userData.acc = (o.userData.acc || 0) + dt * Math.min(7, Math.abs(velS) * .0035) * (calm ? 0 : 1);
+        o.rotation.y = (nm === 'coin' || nm === 'moon' ? time * sp[1] * boost : Math.sin(time * sp[1] * boost) * .7) + o.userData.acc;
+        o.rotation.z = Math.sin(time * sp[2]) * .12;
+        micro(nm, o, A, B, sc);
+      }
+
+      // weights for the instanced sets
+      const wt = key => mixA(A[key] || 0, B[key] || 0, sc.b);
+      const W8 = coins.userData.w || (coins.userData.w = { rain: 0, stack: 0, planes: 0, road: 0, warp: 0, orbit: 0, field: 0 });
+      for (const key of ['rain', 'stack', 'planes', 'road', 'warp', 'orbit', 'field']) W8[key] += (wt(key) - W8[key]) * k;
+
+      // warp field speed: idle drift + scroll speed + the freedom chapter
+      const speed = (calm ? .2 : .7) + Math.min(40, Math.abs(velS) * .012) * (calm ? .2 : 1) + W8.warp * (calm ? 4 : 26);
+      dOff += dt * speed; dmat.uniforms.uOff.value = dOff % 4000;
+      dmat.uniforms.uStretch.value = .04 + Math.min(7, speed * .14);
+      dmat.uniforms.uAlpha.value = (.28 + Math.min(.4, speed * .012)) * (look.stars === 'many' ? 1.7 : 1);
+      dust.visible = look.stars !== 'off';
+
+      // the car
+      if (carReady) {
+        const iM = secs[sc.i].id === 'money', jM = secs[sc.j].id === 'money', pm = sc.p.money || 0;
+        const pose = (st, isMoney) => {
+          const c = (st.car || CAROFF).slice();
+          if (isMoney) { const f = smooth(clamp((pm - .32) / .38)); c[2] = mixA(-40, c[2], f); c[3] *= f; c[4] += (1 - f) * 2.5 + time * .35; }
+          return c;
+        };
+        const a = pose(A, iM), b = pose(B, jM);
+        if (secs[sc.i].id === 'garasi') a[4] += (sc.p.garage || 0) * Math.PI * 2;
+        let nx = mixA(a[0], b[0], sc.b), ny = mixA(a[1], b[1], sc.b), z = mixA(a[2], b[2], sc.b), s = mixA(a[3], b[3], sc.b), yaw = mixA(a[4], b[4], sc.b) + dragYaw;
+        if (mob) {
+          const mny = (st, x) => st.car && st.car[5] !== undefined ? st.car[5] : x, ms = st => st.car && st.car[6] !== undefined ? st.car[6] : 1;
+          if (Math.abs(nx) < 1.5) nx = 0;
+          ny = mixA(mny(A, a[1] - .08), mny(B, b[1] - .08), sc.b); s *= mixA(ms(A), ms(B), sc.b) * Math.min(1, hw * 1.75 / 4.6);
+        }
+        const dz = (10 - z) / 10;
+        const cc = carRoot.userData.cur || (carRoot.userData.cur = { x: 0, y: 0, z: -40, s: 0, yaw: yaw });
+        const kc = 1 - Math.exp(-dt * 4.2);
+        cc.x += (nx * hw * dz - cc.x) * kc; cc.y += (ny * hh * dz - cc.y) * kc; cc.z += (z - cc.z) * kc; cc.s += (s - cc.s) * kc;
+        const yt = angTo(cc.yaw, yaw); cc.yaw += (yt - cc.yaw) * kc;
+        const show = cc.s > .01;
+        // end of the freedom chapter: the car pulls away down the road and its sound fades out, all before the coin chapter starts
+        const fIdx = secs.findIndex(x => x.id === 'tujuan');
+        const away = sc.i > fIdx ? 1 : sc.i === fIdx ? smooth(clamp(((sc.p.free || 0) - .66) / .24)) : 0;
+        carModel.position.z = away * away * 70; shadow.position.z = carModel.position.z;
+        carPresence = show ? clamp(cc.s / .8) * (1 - away) : 0;
+        if (warm > 0) { warm--; carRoot.visible = true; carRoot.position.set(0, 0, 0); carRoot.scale.setScalar(.001); }
+        else {
+          carRoot.visible = show;
+          if (show) {
+            const bump = W8.road * (Math.sin(time * 31) * .006 + Math.sin(time * 17.3) * .004);
+            const sway = W8.road * Math.sin(time * .55);
+            carRoot.position.set(cc.x + sway * .35 * cc.s, cc.y + bump, cc.z); carRoot.scale.setScalar(cc.s);
+            carRoot.rotation.set(.16 + W8.road * .05, cc.yaw + W8.road * Math.cos(time * .55) * .08, sway * -.025);
+            const gust = Math.min(1, W8.road + Math.abs(velS) / 2600) * (calm ? .4 : 1);
+            wind.visible = gust > .02; wmat.uniforms.uWind.value = gust;
+            windT += dt * (1.2 + W8.road * 5 + Math.min(5, Math.abs(velS) * .002)); wmat.uniforms.uTime.value = windT;
+            const id = secs[sc.i].id; if (id !== lastId) { if (id === 'garasi' || id === 'tujuan') flash = 1; lastId = id; }
+            flash *= Math.exp(-dt * 2.2);
+            CM.lens.emissiveIntensity = .25 + flash * 3 + W8.road * 1.4; CM.tail.emissiveIntensity = .6 + W8.road * 1.2 + flash;
+            road.visible = W8.road > .01; roadMat.opacity = W8.road;
+            roadTex.offset.y = ((roadTex.offset.y - dt * W8.road * 34 / (90 / 14)) % 1 + 1) % 1;   // the road flows from nose to tail
+            roll -= dt * (W8.road * 40 + Math.min(12, Math.abs(velS) * .004) + .2);   // negative = rolling forward for this model
+            wheels.forEach(w => { w.rotation.x = roll; });
+            // engine: speed builds up in the freedom chapter; a fast scroll in the garage blips the throttle
+            const spT = W8.road * (.72 + .28 * Math.min(1, Math.abs(velS) / 2500));
+            carSpeed += (spT - carSpeed) * Math.min(1, dt * (spT > carSpeed ? .45 : .8));
+            const thrT = clamp(Math.max((spT - carSpeed) * 5 + spT * .55, Math.min(1, Math.abs(velS) / 3200) * (1 - W8.road)));
+            carThr += (thrT - carThr) * Math.min(1, dt * 7);
+            // exhaust flames
+            const pres = carPresence;
+            if (!fDriving && carSpeed > .2 && pres > .2) { fDriving = true; fT = 0; fLastLoop = -1; fBurst = .9; }
+            else if (fDriving && (carSpeed < .12 || pres < .05)) { fDriving = false; [.05, .32, .55, .9, 1.25].forEach(d => flameAt(time + d + Math.random() * .08)); }
+            if (fDriving) {
+              const prev = fT; fT += dt;
+              SHIFTS.forEach(sh => { if (prev < sh && fT >= sh) { fBurst = 1; flameAt(time + .14); } });
+              if (fT > 18.5) { const k = Math.floor((fT - 9.46) / 9.04); if (k !== fLastLoop) { fLastLoop = k; fBurst = 1; flameAt(time + .14); } const lp = 9.46 + (fT - 9.46) % 9.04; if (lp > 13.36 && lp - dt <= 13.36) { fBurst = 1; flameAt(time + .14); } }
+            } else if (carThr > .55 && pres > .3 && time > fRevAt) { fRevAt = time + 2.6; fBurst = .85; [1.7, 2.1, 2.35].forEach(d => flameAt(time + d)); }   // a blip in the garage
+            fEvents = fEvents.filter(e => { if (time >= e) { fBurst = Math.max(fBurst, .55 + Math.random() * .4); return false; } return true; });
+            fBurst *= Math.exp(-dt * 7);
+            const fI = Math.min(1.2, fBurst + (fDriving ? carThr * .32 : 0));
+            flames.visible = fI > .02; flameMat.uniforms.uI.value = fI; flameMat.uniforms.uT.value = time;
+            flames.children.forEach((m, q) => { const L = .4 + fI * (1.5 + .4 * Math.sin(time * 40 + q * 2)); m.scale.set(.85 + fI * .6, .85 + fI * .6, L); });
+          }
+        }
+      }
+      // the ending's Earth system: loads once the reader is past the garage, then pulls back as they scroll the credits
+      if (!spaceLoading && secs[sc.i].id !== undefined && sc.i >= secs.findIndex(x => x.id === 'tujuan')) loadSpace();
+      if (spaceReady) {
+        // Earth rides up with the page, settles in the upper third, then drifts back as the credits roll
+        const nyRaw = -(sc.gc - sc.vh / 2) / (sc.vh / 2), past = Math.max(0, nyRaw - .34);
+        const ak = [0, Math.min(nyRaw, .34), -3 - past * 2.4, 1.7];
+        const pa = A === ST.akhir ? ak : (A.space || SPACEOFF).slice(), pb = B === ST.akhir ? ak : (B.space || SPACEOFF).slice();
+        let snx = mixA(pa[0], pb[0], sc.b), sny = mixA(pa[1], pb[1], sc.b), sz = mixA(pa[2], pb[2], sc.b), ss = mixA(pa[3], pb[3], sc.b);
+        if (mob) { ss *= .62; sny += .04; }
+        const sdz = (10 - sz) / 10, cs2 = space.userData.cur || (space.userData.cur = { x: 0, y: 0, z: -40, s: 0 });
+        const ks = 1 - Math.exp(-dt * 3.2);
+        cs2.x += (snx * hw * sdz - cs2.x) * ks; cs2.y += (sny * hh * sdz - cs2.y) * ks; cs2.z += (sz - cs2.z) * ks; cs2.s += (ss - cs2.s) * ks;
+        space.visible = stars.visible = cs2.s > .01;
+        if (space.visible) {
+          space.position.set(cs2.x, cs2.y, cs2.z); space.scale.setScalar(cs2.s);
+          space.rotation.y = ptr.x * .12; space.rotation.x = ptr.y * .06;
+          earth.rotation.y = time * .05; clouds.rotation.y = earth.rotation.y; EU.uCloud.value = (time * .0028) % 1;
+          BODIES.forEach(b => { const a = b.ph + time * b.sp; b.m.position.set(Math.cos(a) * b.o, 0, Math.sin(a) * b.o * b.zs); b.m.rotation.y = b.moon ? -a + Math.PI : time * (b.r > .7 ? .35 : .12); });
+          starMat.uniforms.uA.value = clamp(cs2.s / 1.2) * .9; starMat.uniforms.uT.value = time; starMat.uniforms.uPR.value = pr;
+        }
+      }
+      updateField(W8.field, mob, hh, hw, dt);
+      const ruleIdx = secs.findIndex(s => s.id === 'prinsip');
+      // stacks build with the chapter's own scroll: one stack per principle, in order, finished as the cards finish fanning out
+      const rulesP = innerWidth > 720 ? (sc.p.rules || 0) : sc.t;
+      const stackP = sc.i === ruleIdx ? clamp((rulesP - .08) / .46) : sc.i > ruleIdx ? 1 : 0;
+      const builtNow = W8.stack > .5 ? Math.floor(stackP * SN) : 0;   // coin q goes on stack q % 3, so all three stacks rise together
+      // coins are released in order, at least 0.045 s apart, so a fast scroll becomes a quick cascade instead of a jump
+      let lastRel = -1e9;
+      for (let q = 0; q < SN; q++) if (relAt[q] > lastRel) lastRel = relAt[q];
+      for (let q = 0; q < SN; q++) {
+        if (q < builtNow) { if (relAt[q] < 0) { lastRel = Math.max(time, lastRel + .075); relAt[q] = lastRel; landed[q] = 0; } }
+        else { relAt[q] = -1; landed[q] = 0; }
+      }
+      const DROP = 1.35;   // seconds from the top of the screen to the stack
+      const cardW = Math.min(290, innerWidth * .29), fan = sc.i === ruleIdx ? smooth(clamp(((sc.p.rules || 0) - .06) / .3)) : 1;   // follow the cards as they fan out
+
+      coins.visible = W8.rain + W8.stack + W8.orbit > .01;
+      if (coins.visible) {
+        const tot = W8.rain + W8.stack + W8.orbit, sw = W8.stack / tot, ow = W8.orbit / tot, rw = W8.rain / tot, built = stackP * SN, hc = objs.coin.position, NO = 7;
+        for (let q = 0; q < NC; q++) {
+          const c = cs[q];
+          const range = hh * 2.8, dz = (10 - c.z) / 10;
+          const ry = hh * 1.4 - ((c.y * range + time * c.v * 2.2) % range);
+          const lane = q % 3, lvl = Math.floor(q / 3), rq = q < SN ? relAt[q] : -1, fall = rq < 0 ? 0 : clamp((time - rq) / DROP);
+          const px = innerWidth > 720 ? (lane - 1) * 1.08 * cardW * fan : (lane - 1) * 46;
+          const land = -.94 * hh + lvl * .064, top = hh * 1.15;
+          const after = rq < 0 ? 0 : time - rq - DROP, bounce = after > 0 && after < .55 ? Math.abs(Math.sin(after / .55 * Math.PI * 2)) * .05 * Math.exp(-after * 6) : 0;
+          if (q < SN && fall >= 1 && !landed[q]) { landed[q] = 1; Engine.clink(lvl); }
+          const sx = px / (innerWidth / 2) * hw + Math.sin(q * 2.3) * .015 + Math.sin(q * 1.7) * .25 * (1 - fall) * (1 - fall), sy = mixA(top, land, fall * fall * (3 - 2 * fall) * .35 + fall * fall * .65) + bounce, szz = (1 - fall) * .6;
+          const oa = q / NO * Math.PI * 2 + time * .32, orR = (mob ? 1.5 : 2.7) + Math.sin(time * .7 + q) * .2;
+          const ox = hc.x + Math.cos(oa) * orR, oy = hc.y + Math.sin(oa * 2 + q) * .35, oz = hc.z + Math.sin(oa) * orR * .7;
+          dummy.position.set(c.x * hw * 1.1 * dz * rw + sx * sw + ox * ow, ry * dz * rw + sy * sw + oy * ow, c.z * rw + szz * sw + oz * ow);
+          dummy.rotation.set(mixA(c.ax + time * c.rs, Math.sin(q) * .04 + (q < SN ? Math.pow(1 - fall, 2) * 3.2 * Math.sin(q) + (after > 0 && after < .6 ? Math.sin(after * 22) * .12 * Math.exp(-after * 7) : 0) : 0), sw) + ow * time * .6, mixA(c.ay + time * c.rs * .7, q * .6, sw), ow * Math.sin(time + q));
+          const sScale = q < SN && rq >= 0 && time >= rq ? 1 : 0;
+          dummy.scale.setScalar(Math.max(.0001, (W8.rain * .95 + W8.stack * sScale * .62 + W8.orbit * (q < NO ? .42 : 0)) * (mob ? .8 : 1)));
+          dummy.updateMatrix(); coins.setMatrixAt(q, dummy.matrix);
+        }
+        coins.instanceMatrix.needsUpdate = true;
+      }
+      planes.visible = W8.planes > .01;
+      if (planes.visible) {
+        for (let q = 0; q < NP; q++) {
+          const p = ps[q], u = (p.u + time * p.v * .045) % 1, dz = (10 - p.z) / 10;
+          dummy.position.set((u * 2.8 - 1.4) * hw * dz, (p.y * .8 + u * .35) * hh * dz + Math.sin(time * .9 + p.ph) * .2, p.z);
+          const rp = (time * .16 + p.ph) % 1; dummy.rotation.set(Math.sin(time * 1.1 + p.ph) * .35 + (rp < .14 ? smooth(rp / .14) * Math.PI * 2 : 0), -.15, .18 + Math.sin(time * .7 + p.ph) * .08);
+          dummy.scale.setScalar(Math.max(.0001, W8.planes * .62));
+          dummy.updateMatrix(); planes.setMatrixAt(q, dummy.matrix);
+        }
+        planes.instanceMatrix.needsUpdate = true;
+      }
+
+      // camera parallax
+      cam.position.x += (ptr.x * .35 - cam.position.x) * k * .6;
+      cam.position.y += (-ptr.y * .25 - cam.position.y) * k * .6;
+      cam.lookAt(0, 0, 0);
+      cam.rotateZ(calm ? 0 : clamp(velS * -.000022, -.07, .07));
+      const fovT = 35 + (calm ? 0 : Math.min(10, Math.abs(velS) * .0028) + W8.warp * 6);
+      if (Math.abs(fovT - cam.fov) > .01) { cam.fov += (fovT - cam.fov) * k; cam.updateProjectionMatrix(); }
+      Engine.update(carReady ? carPresence : 0, carSpeed, carThr, dt);
+      R.render(scene3, cam);
+
+      pop(dt, time);
+      // adaptive resolution: keep frames steady instead of dropping them
+      ema += (dt * 1000 - ema) * .06;
+      if (++n > 40) {
+        n = 0;
+        if (ema > 21 && pr > .75) { pr = Math.max(.75, pr - .25); R.setPixelRatio(pr); }
+        else if (ema < 14 && pr < cap) { pr = Math.min(cap, pr + .25); R.setPixelRatio(pr); }
+      }
+    };
+  }
+})();
+</script>
+
+</body>
+</html>
